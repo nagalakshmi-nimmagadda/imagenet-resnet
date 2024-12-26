@@ -1,0 +1,35 @@
+training:
+  num_epochs: 20
+  batch_size: 1024
+  gradient_accumulation_steps: 2
+  num_workers: 8
+  learning_rate: 0.8
+  weight_decay: 1e-4
+  momentum: 0.9
+  warmup_epochs: 2
+  label_smoothing: 0.1
+  mixup_alpha: 0.2
+  cutmix_alpha: 1.0
+  amp: true
+  channels_last: true
+
+model:
+  name: "resnet50"
+  num_classes: 1000
+  pretrained: false
+
+data:
+  train_dir: "data/ILSVRC/Data/CLS-LOC/train"
+  val_dir: "data/ILSVRC/Data/CLS-LOC/val"
+  image_size: 224
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+  auto_augment: true
+  random_erase_prob: 0.2
+  cache_mode: "part"
+  prefetch_factor: 2
+
+distributed:
+  backend: "nccl"
+  world_size: 4
+  find_unused_parameters: false 
