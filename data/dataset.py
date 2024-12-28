@@ -1,103 +1,142 @@
 import os
-import torch
-from torch.utils.data import Dataset, DataLoader
-from torchvision import transforms
-from PIL import Image
-import torch.distributed as dist
+from torch.utils.data import DataLoader
+import pytorch_lightning as pl
+from torchvision import transforms, datasets
 from torch.utils.data.distributed import DistributedSampler
+import torch
+import logging
 
-class ImageNetDataset(Dataset):
-    def __init__(self, root_dir, transform=None, rank=0):
-        self.root_dir = root_dir
-        self.transform = transform
-        self.rank = rank
+class ImageNetDataModule(pl.LightningDataModule):
+    def __init__(
+        self,
+        train_dir: str,
+        val_dir: str,
+        batch_size: int = 256,
+        num_workers: int = 8,
+        pin_memory: bool = True,
+        persistent_workers: bool = True,
+        prefetch_factor: int = 2,
+        image_size: int = 224,
+        random_erase_prob: float = 0.2
+    ):
+        super().__init__()
+        self.train_dir = train_dir
+        self.val_dir = val_dir
+        self.batch_size = batch_size
+        self.num_workers = num_workers
+        self.pin_memory = pin_memory
+        self.persistent_workers = persistent_workers
+        self.prefetch_factor = prefetch_factor
+        self.image_size = image_size
         
-        if not os.path.exists(root_dir):
-            raise RuntimeError(f"Dataset directory {root_dir} does not exist!")
+        # ImageNet normalization
+        self.normalize = transforms.Normalize(
+            mean=[0.485, 0.456, 0.406],
+            std=[0.229, 0.224, 0.225]
+        )
+        
+        # Enhanced training augmentations
+        self.train_transform = transforms.Compose([
+            transforms.RandomResizedCrop(image_size),
+            transforms.RandomHorizontalFlip(),
+            transforms.AutoAugment(policy=transforms.AutoAugmentPolicy.IMAGENET),
+            transforms.ToTensor(),
+            self.normalize,
+            transforms.RandomErasing(p=random_erase_prob)
+        ])
+        
+        # Validation transform
+        self.val_transform = transforms.Compose([
+            transforms.Resize(int(image_size * 256/224)),
+            transforms.CenterCrop(image_size),
+            transforms.ToTensor(),
+            self.normalize,
+        ])
+        
+        self.logger = logging.getLogger(__name__)
+
+    def prepare_data(self):
+        """Verify data exists and log dataset info."""
+        if not os.path.exists(self.train_dir):
+            raise RuntimeError(f"Training directory not found: {self.train_dir}")
+        if not os.path.exists(self.val_dir):
+            raise RuntimeError(f"Validation directory not found: {self.val_dir}")
             
-        self.classes = sorted([d for d in os.listdir(root_dir) 
-                             if os.path.isdir(os.path.join(root_dir, d))])
+        train_classes = len(os.listdir(self.train_dir))
+        val_classes = len(os.listdir(self.val_dir))
         
-        if len(self.classes) == 0:
-            raise RuntimeError(f"No class directories found in {root_dir}")
+        self.logger.info(f"Found {train_classes} training classes")
+        self.logger.info(f"Found {val_classes} validation classes")
+
+    def setup(self, stage=None):
+        """Set up datasets with error handling and logging."""
+        try:
+            self.train_dataset = datasets.ImageFolder(
+                self.train_dir,
+                transform=self.train_transform
+            )
+            self.logger.info(f"Training dataset size: {len(self.train_dataset)}")
             
-        if self.rank == 0:
-            print(f"Found {len(self.classes)} classes in {root_dir}")
-        
-        self.class_to_idx = {cls_name: i for i, cls_name in enumerate(self.classes)}
-        
-        self.samples = []
-        for class_name in self.classes:
-            class_dir = os.path.join(root_dir, class_name)
-            for img_name in os.listdir(class_dir):
-                if img_name.lower().endswith(('.jpeg', '.jpg', '.png')):
-                    self.samples.append((
-                        os.path.join(class_dir, img_name),
-                        self.class_to_idx[class_name]
-                    ))
-        
-        if self.rank == 0:
-            print(f"Found {len(self.samples)} images")
-
-    def __len__(self):
-        return len(self.samples)
-
-    def __getitem__(self, idx):
-        img_path, label = self.samples[idx]
-        image = Image.open(img_path).convert('RGB')
-        
-        if self.transform:
-            image = self.transform(image)
+            self.val_dataset = datasets.ImageFolder(
+                self.val_dir,
+                transform=self.val_transform
+            )
+            self.logger.info(f"Validation dataset size: {len(self.val_dataset)}")
             
-        return image, label
+        except Exception as e:
+            self.logger.error(f"Error setting up datasets: {str(e)}")
+            raise
 
-def create_dataloaders(config, world_size, rank):
-    train_transform = transforms.Compose([
-        transforms.RandomResizedCrop(config['data']['image_size']),
-        transforms.RandomHorizontalFlip(),
-        transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4),
-        transforms.AutoAugment(policy=transforms.AutoAugmentPolicy.IMAGENET),
-        transforms.RandomErasing(p=config['data']['random_erase_prob']),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=config['data']['mean'], std=config['data']['std'])
-    ])
+    def train_dataloader(self):
+        return DataLoader(
+            self.train_dataset,
+            batch_size=self.batch_size,
+            shuffle=False,  # Disable shuffle as DistributedSampler will handle it
+            num_workers=self.num_workers,
+            pin_memory=self.pin_memory,
+            persistent_workers=self.persistent_workers,
+            prefetch_factor=self.prefetch_factor,
+            sampler=DistributedSampler(self.train_dataset, shuffle=True)
+        )
 
-    val_transform = transforms.Compose([
-        transforms.Resize(256),
-        transforms.CenterCrop(config['data']['image_size']),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=config['data']['mean'], std=config['data']['std'])
-    ])
+    def val_dataloader(self):
+        return DataLoader(
+            self.val_dataset,
+            batch_size=self.batch_size,
+            shuffle=False,
+            num_workers=self.num_workers,
+            pin_memory=self.pin_memory,
+            persistent_workers=self.persistent_workers,
+            prefetch_factor=self.prefetch_factor,
+            sampler=DistributedSampler(self.val_dataset, shuffle=False)
+        )
+        
+    def on_after_batch_transfer(self, batch, dataloader_idx):
+        """Monitor GPU memory usage after batch transfer."""
+        if torch.cuda.is_available():
+            for i in range(torch.cuda.device_count()):
+                memory_allocated = torch.cuda.memory_allocated(i) / 1e9  # GB
+                memory_reserved = torch.cuda.memory_reserved(i) / 1e9    # GB
+                self.logger.debug(
+                    f"GPU {i} Memory: {memory_allocated:.2f}GB allocated, "
+                    f"{memory_reserved:.2f}GB reserved"
+                )
+        return batch 
 
-    train_dataset = ImageNetDataset(
-        root_dir=config['data']['train_dir'],
-        transform=train_transform,
-        rank=rank
-    )
-
-    val_dataset = ImageNetDataset(
-        root_dir=config['data']['val_dir'],
-        transform=val_transform,
-        rank=rank
-    )
-
-    train_sampler = DistributedSampler(train_dataset, num_replicas=world_size, rank=rank)
-    val_sampler = DistributedSampler(val_dataset, num_replicas=world_size, rank=rank)
-
-    train_loader = DataLoader(
-        train_dataset,
-        batch_size=config['training']['batch_size'],
-        sampler=train_sampler,
-        num_workers=config['training']['num_workers'],
-        pin_memory=True
-    )
-
-    val_loader = DataLoader(
-        val_dataset,
-        batch_size=config['training']['batch_size'],
-        sampler=val_sampler,
-        num_workers=config['training']['num_workers'],
-        pin_memory=True
-    )
-
-    return train_loader, val_loader 
+    def validation_step(self, batch, batch_idx):
+        x, y = batch
+        logits = self(x)
+        loss = self.criterion(logits, y)
+        acc1 = (logits.argmax(dim=1) == y).float().mean()
+        _, pred = logits.topk(5, 1, True, True)
+        acc5 = (pred == y.view(-1, 1)).float().max(dim=1)[0].mean()
+        
+        self.log('val_loss', loss, prog_bar=True, sync_dist=True)
+        self.log('val_acc_top1', acc1, prog_bar=True, sync_dist=True)
+        self.log('val_acc_top5', acc5, prog_bar=True, sync_dist=True)
+        
+        return {
+            'val_loss': loss,
+            'val_acc_top1': acc1,
+            'val_acc_top5': acc5
+        } 

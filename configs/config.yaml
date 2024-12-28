@@ -5,13 +5,14 @@ model:
 
 training:
   num_epochs: 50
-  batch_size: 64
-  gradient_accumulation_steps: 16
+  batch_size: 128
+  accumulate_grad_batches: 2
+  precision: "16-mixed"
   num_workers: 8
   learning_rate: 0.5
-  weight_decay: 0.0002
+  weight_decay: 0.05
   momentum: 0.9
-  warmup_epochs: 3
+  warmup_epochs: 5
   label_smoothing: 0.1
   mixup_alpha: 0.4
   cutmix_alpha: 1.0
@@ -23,12 +24,17 @@ training:
   optimizer_batch_size: 1024
   label_smoothing_factor: 0.1
   random_erase_prob: 0.3
+  prefetch_factor: 2
+  pin_memory: true
+  persistent_workers: true
 
 monitoring:
   instance_type: "g6.12xlarge"
   cost_per_hour: 5.6
   max_budget_usd: 25.0
   log_interval: 50
+  log_every_n_steps: 50
+  val_check_interval: 0.5
 
 aws:
   bucket_name: "imagenet-training-bucket--aps1-az1--x-s3 "
@@ -47,4 +53,21 @@ data:
 
 distributed:
   backend: "nccl"
-  init_method: "env://" 
+  init_method: "env://"
+
+optimization:
+  gradient_clip_val: 1.0
+  weight_decay: 0.05
+  initial_lr: 1e-3
+  final_lr: 1e-5
+  warmup_epochs: 5
+
+checkpointing:
+  save_top_k: 3
+  save_last: true
+  every_n_epochs: 1
+
+hardware:
+  gpu_memory_fraction: 0.95
+  cudnn_benchmark: true
+  deterministic: false 

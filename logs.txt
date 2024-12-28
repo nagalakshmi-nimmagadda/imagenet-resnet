@@ -1,0 +1,2029 @@
+GPU Information:
+Fri Dec 27 17:32:10 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.183.01             Driver Version: 535.183.01   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA L4                      On  | 00000000:38:00.0 Off |                    0 |
+| N/A   39C    P8              16W /  70W |      0MiB / 23034MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   1  NVIDIA L4                      On  | 00000000:3A:00.0 Off |                    0 |
+| N/A   37C    P8              16W /  70W |      0MiB / 23034MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   2  NVIDIA L4                      On  | 00000000:3C:00.0 Off |                    0 |
+| N/A   38C    P8              16W /  70W |      0MiB / 23034MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   3  NVIDIA L4                      On  | 00000000:3E:00.0 Off |                    0 |
+| N/A   37C    P8              16W /  70W |      0MiB / 23034MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+Optimizing GPU settings for NVIDIA L4...
+Configuring GPU 0...
+Configuring GPU 1...
+Configuring GPU 2...
+Configuring GPU 3...
+Network Interface Configuration:
+2: enp39s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP group default qlen 1000
+    link/ether 02:e4:8e:1e:01:7b brd ff:ff:ff:ff:ff:ff
+    inet 172.31.47.158/20 metric 100 brd 172.31.47.255 scope global dynamic enp39s0
+       valid_lft 3010sec preferred_lft 3010sec
+    inet6 fe80::e4:8eff:fe1e:17b/64 scope link 
+       valid_lft forever preferred_lft forever
+Training Configuration:
+NCCL_SOCKET_IFNAME: enp39s0
+MASTER_ADDR: 127.0.0.1
+WORLD_SIZE: 4
+CUDA_VISIBLE_DEVICES: 0,1,2,3
+Starting training...
+[rank: 0] Seed set to 42
+Resuming from checkpoint: checkpoints/last.ckpt
+[rank: 2] Seed set to 42
+Resuming from checkpoint: checkpoints/last.ckpt
+[rank: 3] Seed set to 42
+[rank: 1] Seed set to 42
+Resuming from checkpoint: checkpoints/last.ckpt
+Resuming from checkpoint: checkpoints/last.ckpt
+Using 16bit Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/4
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 4 processes
+----------------------------------------------------------------------------------------------------
+
+Initializing distributed: GLOBAL_RANK: 2, MEMBER: 3/4
+Initializing distributed: GLOBAL_RANK: 3, MEMBER: 4/4
+ip-172-31-47-158:91731:91731 [0] NCCL INFO Bootstrap : Using enp39s0:172.31.47.158<0>
+ip-172-31-47-158:91731:91731 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ip-172-31-47-158:91731:91731 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ip-172-31-47-158:91731:91731 [0] NCCL INFO cudaDriverVersion 12020
+NCCL version 2.18.5+cuda12.1
+ip-172-31-47-158:91733:91733 [2] NCCL INFO cudaDriverVersion 12020
+ip-172-31-47-158:91734:91734 [3] NCCL INFO cudaDriverVersion 12020
+ip-172-31-47-158:91733:91733 [2] NCCL INFO Bootstrap : Using enp39s0:172.31.47.158<0>
+ip-172-31-47-158:91734:91734 [3] NCCL INFO Bootstrap : Using enp39s0:172.31.47.158<0>
+ip-172-31-47-158:91734:91734 [3] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ip-172-31-47-158:91733:91733 [2] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ip-172-31-47-158:91733:91733 [2] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ip-172-31-47-158:91734:91734 [3] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+Initializing distributed: GLOBAL_RANK: 1, MEMBER: 2/4
+ip-172-31-47-158:91732:91732 [1] NCCL INFO cudaDriverVersion 12020
+ip-172-31-47-158:91732:91732 [1] NCCL INFO Bootstrap : Using enp39s0:172.31.47.158<0>
+ip-172-31-47-158:91732:91732 [1] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ip-172-31-47-158:91732:91732 [1] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ip-172-31-47-158:91731:91846 [0] NCCL INFO NET/Socket : Using [0]enp39s0:172.31.47.158<0>
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Using network Socket
+ip-172-31-47-158:91732:91849 [1] NCCL INFO NET/Socket : Using [0]enp39s0:172.31.47.158<0>
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Using network Socket
+ip-172-31-47-158:91733:91848 [2] NCCL INFO NET/Socket : Using [0]enp39s0:172.31.47.158<0>
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Using network Socket
+ip-172-31-47-158:91734:91847 [3] NCCL INFO NET/Socket : Using [0]enp39s0:172.31.47.158<0>
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Using network Socket
+ip-172-31-47-158:91734:91847 [3] NCCL INFO comm 0x2f2650c0 rank 3 nranks 4 cudaDev 3 nvmlDev 3 busId 3e000 commId 0xf48c684f8ea6b104 - Init START
+ip-172-31-47-158:91731:91846 [0] NCCL INFO comm 0x2adc3670 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 38000 commId 0xf48c684f8ea6b104 - Init START
+ip-172-31-47-158:91732:91849 [1] NCCL INFO comm 0x20b69e20 rank 1 nranks 4 cudaDev 1 nvmlDev 1 busId 3a000 commId 0xf48c684f8ea6b104 - Init START
+ip-172-31-47-158:91733:91848 [2] NCCL INFO comm 0x97f5310 rank 2 nranks 4 cudaDev 2 nvmlDev 2 busId 3c000 commId 0xf48c684f8ea6b104 - Init START
+ip-172-31-47-158:91734:91847 [3] NCCL INFO KV Convert to int : could not find value of 'Unknown' in dictionary, falling back to 60
+ip-172-31-47-158:91731:91846 [0] NCCL INFO KV Convert to int : could not find value of 'Unknown' in dictionary, falling back to 60
+ip-172-31-47-158:91732:91849 [1] NCCL INFO KV Convert to int : could not find value of 'Unknown' in dictionary, falling back to 60
+ip-172-31-47-158:91733:91848 [2] NCCL INFO KV Convert to int : could not find value of 'Unknown' in dictionary, falling back to 60
+ip-172-31-47-158:91734:91847 [3] NCCL INFO NCCL_P2P_LEVEL set by environment to LOC
+ip-172-31-47-158:91731:91846 [0] NCCL INFO NCCL_P2P_LEVEL set by environment to LOC
+ip-172-31-47-158:91731:91846 [0] NCCL INFO === System : maxBw 12.0 totalBw 12.0 ===
+ip-172-31-47-158:91732:91849 [1] NCCL INFO NCCL_P2P_LEVEL set by environment to LOC
+ip-172-31-47-158:91734:91847 [3] NCCL INFO === System : maxBw 12.0 totalBw 12.0 ===
+ip-172-31-47-158:91731:91846 [0] NCCL INFO CPU/0 (1/2/-1)
+ip-172-31-47-158:91734:91847 [3] NCCL INFO CPU/0 (1/2/-1)
+ip-172-31-47-158:91731:91846 [0] NCCL INFO + PCI[24.0] - PCI/25000 (1d0f02001d0f0200)
+ip-172-31-47-158:91734:91847 [3] NCCL INFO + PCI[24.0] - PCI/25000 (1d0f02001d0f0200)
+ip-172-31-47-158:91731:91846 [0] NCCL INFO               + PCI[12.0] - NIC/27000
+ip-172-31-47-158:91734:91847 [3] NCCL INFO               + PCI[12.0] - NIC/27000
+ip-172-31-47-158:91731:91846 [0] NCCL INFO + PCI[12.0] - GPU/38000 (0)
+ip-172-31-47-158:91734:91847 [3] NCCL INFO + PCI[12.0] - GPU/38000 (0)
+ip-172-31-47-158:91731:91846 [0] NCCL INFO + PCI[12.0] - GPU/3A000 (1)
+ip-172-31-47-158:91734:91847 [3] NCCL INFO + PCI[12.0] - GPU/3A000 (1)
+ip-172-31-47-158:91731:91846 [0] NCCL INFO + PCI[12.0] - GPU/3C000 (2)
+ip-172-31-47-158:91734:91847 [3] NCCL INFO + PCI[12.0] - GPU/3C000 (2)
+ip-172-31-47-158:91733:91848 [2] NCCL INFO NCCL_P2P_LEVEL set by environment to LOC
+ip-172-31-47-158:91731:91846 [0] NCCL INFO + PCI[12.0] - GPU/3E000 (3)
+ip-172-31-47-158:91734:91847 [3] NCCL INFO + PCI[12.0] - GPU/3E000 (3)
+ip-172-31-47-158:91731:91846 [0] NCCL INFO ==========================================
+ip-172-31-47-158:91734:91847 [3] NCCL INFO ==========================================
+ip-172-31-47-158:91731:91846 [0] NCCL INFO GPU/38000 :GPU/38000 (0/5000.000000/LOC) GPU/3A000 (2/12.000000/PHB) GPU/3C000 (2/12.000000/PHB) GPU/3E000 (2/12.000000/PHB) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91734:91847 [3] NCCL INFO GPU/38000 :GPU/38000 (0/5000.000000/LOC) GPU/3A000 (2/12.000000/PHB) GPU/3C000 (2/12.000000/PHB) GPU/3E000 (2/12.000000/PHB) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91731:91846 [0] NCCL INFO GPU/3A000 :GPU/38000 (2/12.000000/PHB) GPU/3A000 (0/5000.000000/LOC) GPU/3C000 (2/12.000000/PHB) GPU/3E000 (2/12.000000/PHB) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91734:91847 [3] NCCL INFO GPU/3A000 :GPU/38000 (2/12.000000/PHB) GPU/3A000 (0/5000.000000/LOC) GPU/3C000 (2/12.000000/PHB) GPU/3E000 (2/12.000000/PHB) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91731:91846 [0] NCCL INFO GPU/3C000 :GPU/38000 (2/12.000000/PHB) GPU/3A000 (2/12.000000/PHB) GPU/3C000 (0/5000.000000/LOC) GPU/3E000 (2/12.000000/PHB) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91734:91847 [3] NCCL INFO GPU/3C000 :GPU/38000 (2/12.000000/PHB) GPU/3A000 (2/12.000000/PHB) GPU/3C000 (0/5000.000000/LOC) GPU/3E000 (2/12.000000/PHB) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91731:91846 [0] NCCL INFO GPU/3E000 :GPU/38000 (2/12.000000/PHB) GPU/3A000 (2/12.000000/PHB) GPU/3C000 (2/12.000000/PHB) GPU/3E000 (0/5000.000000/LOC) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91734:91847 [3] NCCL INFO GPU/3E000 :GPU/38000 (2/12.000000/PHB) GPU/3A000 (2/12.000000/PHB) GPU/3C000 (2/12.000000/PHB) GPU/3E000 (0/5000.000000/LOC) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Setting affinity for GPU 3 to ffff,ffffffff
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Setting affinity for GPU 0 to ffff,ffffffff
+ip-172-31-47-158:91734:91847 [3] NCCL INFO NVLS multicast support is not available on dev 3
+ip-172-31-47-158:91731:91846 [0] NCCL INFO NVLS multicast support is not available on dev 0
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 12.000000/12.000000, type PHB/PIX, sameChannels 1
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 12.000000/12.000000, type PHB/PIX, sameChannels 1
+ip-172-31-47-158:91734:91847 [3] NCCL INFO  0 : GPU/0 GPU/1 GPU/2 GPU/3
+ip-172-31-47-158:91731:91846 [0] NCCL INFO  0 : GPU/0 GPU/1 GPU/2 GPU/3
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Pattern 1, crossNic 0, nChannels 1, bw 12.000000/12.000000, type PHB/PIX, sameChannels 1
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Pattern 1, crossNic 0, nChannels 1, bw 12.000000/12.000000, type PHB/PIX, sameChannels 1
+ip-172-31-47-158:91731:91846 [0] NCCL INFO  0 : GPU/0 GPU/1 GPU/2 GPU/3
+ip-172-31-47-158:91734:91847 [3] NCCL INFO  0 : GPU/0 GPU/1 GPU/2 GPU/3
+ip-172-31-47-158:91732:91849 [1] NCCL INFO === System : maxBw 12.0 totalBw 12.0 ===
+ip-172-31-47-158:91732:91849 [1] NCCL INFO CPU/0 (1/2/-1)
+ip-172-31-47-158:91732:91849 [1] NCCL INFO + PCI[24.0] - PCI/25000 (1d0f02001d0f0200)
+ip-172-31-47-158:91732:91849 [1] NCCL INFO               + PCI[12.0] - NIC/27000
+ip-172-31-47-158:91732:91849 [1] NCCL INFO + PCI[12.0] - GPU/38000 (0)
+ip-172-31-47-158:91732:91849 [1] NCCL INFO + PCI[12.0] - GPU/3A000 (1)
+ip-172-31-47-158:91733:91848 [2] NCCL INFO === System : maxBw 12.0 totalBw 12.0 ===
+ip-172-31-47-158:91732:91849 [1] NCCL INFO + PCI[12.0] - GPU/3C000 (2)
+ip-172-31-47-158:91732:91849 [1] NCCL INFO + PCI[12.0] - GPU/3E000 (3)
+ip-172-31-47-158:91733:91848 [2] NCCL INFO CPU/0 (1/2/-1)
+ip-172-31-47-158:91732:91849 [1] NCCL INFO ==========================================
+ip-172-31-47-158:91733:91848 [2] NCCL INFO + PCI[24.0] - PCI/25000 (1d0f02001d0f0200)
+ip-172-31-47-158:91733:91848 [2] NCCL INFO               + PCI[12.0] - NIC/27000
+ip-172-31-47-158:91732:91849 [1] NCCL INFO GPU/38000 :GPU/38000 (0/5000.000000/LOC) GPU/3A000 (2/12.000000/PHB) GPU/3C000 (2/12.000000/PHB) GPU/3E000 (2/12.000000/PHB) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91733:91848 [2] NCCL INFO + PCI[12.0] - GPU/38000 (0)
+ip-172-31-47-158:91733:91848 [2] NCCL INFO + PCI[12.0] - GPU/3A000 (1)
+ip-172-31-47-158:91732:91849 [1] NCCL INFO GPU/3A000 :GPU/38000 (2/12.000000/PHB) GPU/3A000 (0/5000.000000/LOC) GPU/3C000 (2/12.000000/PHB) GPU/3E000 (2/12.000000/PHB) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91733:91848 [2] NCCL INFO + PCI[12.0] - GPU/3C000 (2)
+ip-172-31-47-158:91733:91848 [2] NCCL INFO + PCI[12.0] - GPU/3E000 (3)
+ip-172-31-47-158:91733:91848 [2] NCCL INFO ==========================================
+ip-172-31-47-158:91732:91849 [1] NCCL INFO GPU/3C000 :GPU/38000 (2/12.000000/PHB) GPU/3A000 (2/12.000000/PHB) GPU/3C000 (0/5000.000000/LOC) GPU/3E000 (2/12.000000/PHB) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91733:91848 [2] NCCL INFO GPU/38000 :GPU/38000 (0/5000.000000/LOC) GPU/3A000 (2/12.000000/PHB) GPU/3C000 (2/12.000000/PHB) GPU/3E000 (2/12.000000/PHB) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91732:91849 [1] NCCL INFO GPU/3E000 :GPU/38000 (2/12.000000/PHB) GPU/3A000 (2/12.000000/PHB) GPU/3C000 (2/12.000000/PHB) GPU/3E000 (0/5000.000000/LOC) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91733:91848 [2] NCCL INFO GPU/3A000 :GPU/38000 (2/12.000000/PHB) GPU/3A000 (0/5000.000000/LOC) GPU/3C000 (2/12.000000/PHB) GPU/3E000 (2/12.000000/PHB) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ffffffff
+ip-172-31-47-158:91733:91848 [2] NCCL INFO GPU/3C000 :GPU/38000 (2/12.000000/PHB) GPU/3A000 (2/12.000000/PHB) GPU/3C000 (0/5000.000000/LOC) GPU/3E000 (2/12.000000/PHB) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91733:91848 [2] NCCL INFO GPU/3E000 :GPU/38000 (2/12.000000/PHB) GPU/3A000 (2/12.000000/PHB) GPU/3C000 (2/12.000000/PHB) GPU/3E000 (0/5000.000000/LOC) CPU/0 (1/12.000000/PHB) 
+ip-172-31-47-158:91732:91849 [1] NCCL INFO NVLS multicast support is not available on dev 1
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Setting affinity for GPU 2 to ffff,ffffffff
+ip-172-31-47-158:91733:91848 [2] NCCL INFO NVLS multicast support is not available on dev 2
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 12.000000/12.000000, type PHB/PIX, sameChannels 1
+ip-172-31-47-158:91732:91849 [1] NCCL INFO  0 : GPU/0 GPU/1 GPU/2 GPU/3
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 12.000000/12.000000, type PHB/PIX, sameChannels 1
+ip-172-31-47-158:91733:91848 [2] NCCL INFO  0 : GPU/0 GPU/1 GPU/2 GPU/3
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Pattern 1, crossNic 0, nChannels 1, bw 12.000000/12.000000, type PHB/PIX, sameChannels 1
+ip-172-31-47-158:91732:91849 [1] NCCL INFO  0 : GPU/0 GPU/1 GPU/2 GPU/3
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Pattern 1, crossNic 0, nChannels 1, bw 12.000000/12.000000, type PHB/PIX, sameChannels 1
+ip-172-31-47-158:91733:91848 [2] NCCL INFO  0 : GPU/0 GPU/1 GPU/2 GPU/3
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Tree 0 : 0 -> 1 -> 2/-1/-1
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Tree 0 : -1 -> 0 -> 1/-1/-1
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Tree 1 : -1 -> 0 -> 1/-1/-1
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Tree 1 : 0 -> 1 -> 2/-1/-1
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Channel 00/02 :    0   1   2   3
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Ring 00 : 0 -> 1 -> 2
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Channel 01/02 :    0   1   2   3
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Ring 01 : 0 -> 1 -> 2
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Ring 00 : 3 -> 0 -> 1
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Ring 01 : 3 -> 0 -> 1
+ip-172-31-47-158:91732:91849 [1] NCCL INFO P2P Chunksize set to 131072
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Ring 00 : 2 -> 3 -> 0
+ip-172-31-47-158:91731:91846 [0] NCCL INFO P2P Chunksize set to 131072
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Ring 00 : 1 -> 2 -> 3
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Ring 01 : 2 -> 3 -> 0
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Ring 01 : 1 -> 2 -> 3
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1
+ip-172-31-47-158:91734:91847 [3] NCCL INFO P2P Chunksize set to 131072
+ip-172-31-47-158:91733:91848 [2] NCCL INFO P2P Chunksize set to 131072
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Channel 00 : 1[1] -> 2[2] via SHM/direct/direct
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Channel 00 : 2[2] -> 3[3] via SHM/direct/direct
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Channel 00 : 3[3] -> 0[0] via SHM/direct/direct
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Channel 01 : 1[1] -> 2[2] via SHM/direct/direct
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Channel 01 : 2[2] -> 3[3] via SHM/direct/direct
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Channel 01 : 3[3] -> 0[0] via SHM/direct/direct
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Channel 00 : 0[0] -> 1[1] via SHM/direct/direct
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Channel 01 : 0[0] -> 1[1] via SHM/direct/direct
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Connected all rings
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Connected all rings
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Connected all rings
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Channel 00 : 3[3] -> 2[2] via SHM/direct/direct
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Channel 01 : 3[3] -> 2[2] via SHM/direct/direct
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Connected all rings
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Channel 00 : 1[1] -> 0[0] via SHM/direct/direct
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Channel 01 : 1[1] -> 0[0] via SHM/direct/direct
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Channel 00 : 2[2] -> 1[1] via SHM/direct/direct
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Channel 01 : 2[2] -> 1[1] via SHM/direct/direct
+ip-172-31-47-158:91731:91846 [0] NCCL INFO Connected all trees
+ip-172-31-47-158:91731:91846 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+ip-172-31-47-158:91731:91846 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ip-172-31-47-158:91734:91847 [3] NCCL INFO Connected all trees
+ip-172-31-47-158:91734:91847 [3] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+ip-172-31-47-158:91734:91847 [3] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ip-172-31-47-158:91733:91848 [2] NCCL INFO Connected all trees
+ip-172-31-47-158:91733:91848 [2] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+ip-172-31-47-158:91733:91848 [2] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ip-172-31-47-158:91732:91849 [1] NCCL INFO Connected all trees
+ip-172-31-47-158:91732:91849 [1] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+ip-172-31-47-158:91732:91849 [1] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ip-172-31-47-158:91731:91846 [0] NCCL INFO comm 0x2adc3670 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 38000 commId 0xf48c684f8ea6b104 - Init COMPLETE
+ip-172-31-47-158:91733:91848 [2] NCCL INFO comm 0x97f5310 rank 2 nranks 4 cudaDev 2 nvmlDev 2 busId 3c000 commId 0xf48c684f8ea6b104 - Init COMPLETE
+ip-172-31-47-158:91734:91847 [3] NCCL INFO comm 0x2f2650c0 rank 3 nranks 4 cudaDev 3 nvmlDev 3 busId 3e000 commId 0xf48c684f8ea6b104 - Init COMPLETE
+ip-172-31-47-158:91732:91849 [1] NCCL INFO comm 0x20b69e20 rank 1 nranks 4 cudaDev 1 nvmlDev 1 busId 3a000 commId 0xf48c684f8ea6b104 - Init COMPLETE
+/home/ubuntu/imagenet-resnet-1/env/lib/python3.10/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:654: Checkpoint directory /home/ubuntu/imagenet-resnet-1/checkpoints exists and is not empty.
+Restoring states from the checkpoint path at checkpoints/last.ckpt
+LOCAL_RANK: 2 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 3 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+
+  | Name      | Type             | Params | Mode 
+-------------------------------------------------------
+0 | model     | ResNet           | 25.6 M | train
+1 | criterion | CrossEntropyLoss | 0      | train
+-------------------------------------------------------
+2.1 M     Trainable params
+23.5 M    Non-trainable params
+25.6 M    Total params
+102.228   Total estimated model params size (MB)
+152       Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at checkpoints/last.ckpt
+
+Training: |          | 0/? [00:00<?, ?it/s]/home/ubuntu/imagenet-resnet-1/env/lib/python3.10/site-packages/pytorch_lightning/loops/training_epoch_loop.py:221: You're resuming from a checkpoint that ended before the epoch ended and your dataloader is not resumable. This can cause unreliable results if further training is done. Consider using an end-of-epoch checkpoint or make your dataloader resumable by implementing the `state_dict` / `load_state_dict` interface.
+
+Training: |          | 0/? [00:02<?, ?it/s, loss=1.180, acc=0.723, val_acc=0.000]
+Training:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.180, acc=0.723, val_acc=0.000]
+Epoch 2:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.180, acc=0.723, val_acc=0.000] 
+Epoch 2:   2%|▏         | 50/2503 [00:07<05:44,  7.12it/s, loss=1.180, acc=0.723, val_acc=0.000]
+Epoch 2:   2%|▏         | 50/2503 [00:07<05:44,  7.12it/s, loss=1.180, acc=0.703, val_acc=0.000]
+Epoch 2:   4%|▍         | 100/2503 [00:13<05:12,  7.68it/s, loss=1.180, acc=0.703, val_acc=0.000]
+Epoch 2:   4%|▍         | 100/2503 [00:13<05:12,  7.68it/s, loss=1.380, acc=0.680, val_acc=0.000]
+Epoch 2:   6%|▌         | 150/2503 [00:19<04:58,  7.89it/s, loss=1.380, acc=0.680, val_acc=0.000]
+Epoch 2:   6%|▌         | 150/2503 [00:19<04:58,  7.89it/s, loss=1.280, acc=0.715, val_acc=0.000]
+Epoch 2:   8%|▊         | 200/2503 [00:25<04:47,  8.00it/s, loss=1.280, acc=0.715, val_acc=0.000]
+Epoch 2:   8%|▊         | 200/2503 [00:25<04:47,  8.00it/s, loss=1.230, acc=0.727, val_acc=0.000]
+Epoch 2:  10%|▉         | 250/2503 [00:31<04:39,  8.06it/s, loss=1.230, acc=0.727, val_acc=0.000]
+Epoch 2:  10%|▉         | 250/2503 [00:31<04:39,  8.06it/s, loss=1.220, acc=0.705, val_acc=0.000]
+Epoch 2:  12%|█▏        | 300/2503 [00:37<04:31,  8.11it/s, loss=1.220, acc=0.705, val_acc=0.000]
+Epoch 2:  12%|█▏        | 300/2503 [00:37<04:31,  8.11it/s, loss=1.280, acc=0.695, val_acc=0.000]
+Epoch 2:  14%|█▍        | 350/2503 [00:43<04:24,  8.13it/s, loss=1.280, acc=0.695, val_acc=0.000]
+Epoch 2:  14%|█▍        | 350/2503 [00:43<04:24,  8.13it/s, loss=1.080, acc=0.740, val_acc=0.000]
+Epoch 2:  16%|█▌        | 400/2503 [00:49<04:17,  8.16it/s, loss=1.080, acc=0.740, val_acc=0.000]
+Epoch 2:  16%|█▌        | 400/2503 [00:49<04:17,  8.16it/s, loss=1.290, acc=0.713, val_acc=0.000]
+Epoch 2:  18%|█▊        | 450/2503 [00:55<04:11,  8.17it/s, loss=1.290, acc=0.713, val_acc=0.000]
+Epoch 2:  18%|█▊        | 450/2503 [00:55<04:11,  8.17it/s, loss=1.260, acc=0.711, val_acc=0.000]
+Epoch 2:  20%|█▉        | 500/2503 [01:01<04:04,  8.19it/s, loss=1.260, acc=0.711, val_acc=0.000]
+Epoch 2:  20%|█▉        | 500/2503 [01:01<04:04,  8.19it/s, loss=1.270, acc=0.711, val_acc=0.000]
+Epoch 2:  22%|██▏       | 550/2503 [01:07<03:58,  8.20it/s, loss=1.270, acc=0.711, val_acc=0.000]
+Epoch 2:  22%|██▏       | 550/2503 [01:07<03:58,  8.20it/s, loss=1.220, acc=0.721, val_acc=0.000]
+Epoch 2:  24%|██▍       | 600/2503 [01:13<03:51,  8.21it/s, loss=1.220, acc=0.721, val_acc=0.000]
+Epoch 2:  24%|██▍       | 600/2503 [01:13<03:51,  8.21it/s, loss=1.260, acc=0.693, val_acc=0.000]
+Epoch 2:  26%|██▌       | 650/2503 [01:19<03:45,  8.21it/s, loss=1.260, acc=0.693, val_acc=0.000]
+Epoch 2:  26%|██▌       | 650/2503 [01:19<03:45,  8.21it/s, loss=1.170, acc=0.715, val_acc=0.000]
+Epoch 2:  28%|██▊       | 700/2503 [01:25<03:39,  8.22it/s, loss=1.170, acc=0.715, val_acc=0.000]
+Epoch 2:  28%|██▊       | 700/2503 [01:25<03:39,  8.22it/s, loss=1.400, acc=0.701, val_acc=0.000]
+Epoch 2:  30%|██▉       | 750/2503 [01:31<03:33,  8.22it/s, loss=1.400, acc=0.701, val_acc=0.000]
+Epoch 2:  30%|██▉       | 750/2503 [01:31<03:33,  8.22it/s, loss=1.170, acc=0.719, val_acc=0.000]
+Epoch 2:  32%|███▏      | 800/2503 [01:37<03:27,  8.22it/s, loss=1.170, acc=0.719, val_acc=0.000]
+Epoch 2:  32%|███▏      | 800/2503 [01:37<03:27,  8.22it/s, loss=1.310, acc=0.699, val_acc=0.000]
+Epoch 2:  34%|███▍      | 850/2503 [01:43<03:20,  8.23it/s, loss=1.310, acc=0.699, val_acc=0.000]
+Epoch 2:  34%|███▍      | 850/2503 [01:43<03:20,  8.23it/s, loss=1.190, acc=0.713, val_acc=0.000]
+Epoch 2:  36%|███▌      | 900/2503 [01:49<03:14,  8.23it/s, loss=1.190, acc=0.713, val_acc=0.000]
+Epoch 2:  36%|███▌      | 900/2503 [01:49<03:14,  8.23it/s, loss=1.120, acc=0.717, val_acc=0.000]
+Epoch 2:  38%|███▊      | 950/2503 [01:55<03:08,  8.23it/s, loss=1.120, acc=0.717, val_acc=0.000]
+Epoch 2:  38%|███▊      | 950/2503 [01:55<03:08,  8.23it/s, loss=1.200, acc=0.734, val_acc=0.000]
+Epoch 2:  40%|███▉      | 1000/2503 [02:01<03:02,  8.23it/s, loss=1.200, acc=0.734, val_acc=0.000]
+Epoch 2:  40%|███▉      | 1000/2503 [02:01<03:02,  8.23it/s, loss=1.330, acc=0.715, val_acc=0.000]
+Epoch 2:  42%|████▏     | 1050/2503 [02:07<02:56,  8.23it/s, loss=1.330, acc=0.715, val_acc=0.000]
+Epoch 2:  42%|████▏     | 1050/2503 [02:07<02:56,  8.23it/s, loss=1.340, acc=0.680, val_acc=0.000]
+Epoch 2:  44%|████▍     | 1100/2503 [02:13<02:50,  8.23it/s, loss=1.340, acc=0.680, val_acc=0.000]
+Epoch 2:  44%|████▍     | 1100/2503 [02:13<02:50,  8.23it/s, loss=1.450, acc=0.678, val_acc=0.000]
+Epoch 2:  46%|████▌     | 1150/2503 [02:19<02:44,  8.24it/s, loss=1.450, acc=0.678, val_acc=0.000]
+Epoch 2:  46%|████▌     | 1150/2503 [02:19<02:44,  8.24it/s, loss=1.270, acc=0.725, val_acc=0.000]
+Epoch 2:  48%|████▊     | 1200/2503 [02:25<02:38,  8.24it/s, loss=1.270, acc=0.725, val_acc=0.000]
+Epoch 2:  48%|████▊     | 1200/2503 [02:25<02:38,  8.24it/s, loss=1.180, acc=0.752, val_acc=0.000]
+Epoch 2:  50%|████▉     | 1250/2503 [02:31<02:32,  8.24it/s, loss=1.180, acc=0.752, val_acc=0.000]
+Epoch 2:  50%|████▉     | 1250/2503 [02:31<02:32,  8.24it/s, loss=1.290, acc=0.713, val_acc=0.000]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:05,  9.40it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.09it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 2:  50%|████▉     | 1250/2503 [02:45<02:45,  7.57it/s, loss=1.290, acc=0.713, val_acc=0.000]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 2
+
+Epoch 2:  50%|████▉     | 1250/2503 [02:45<02:45,  7.57it/s, loss=1.290, acc=0.713, val_acc=0.000]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 2:  50%|████▉     | 1250/2503 [02:45<02:45,  7.57it/s, loss=1.290, acc=0.713, val_acc=0.000]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8168
+
+Epoch 2:  50%|████▉     | 1250/2503 [02:45<02:45,  7.57it/s, loss=1.290, acc=0.713, val_acc=0.000]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7950
+
+Epoch 2:  50%|████▉     | 1250/2503 [02:45<02:45,  7.57it/s, loss=1.290, acc=0.713, val_acc=0.000]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9447
+
+Epoch 2:  50%|████▉     | 1250/2503 [02:45<02:45,  7.57it/s, loss=1.290, acc=0.713, val_acc=0.000]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 2:  50%|████▉     | 1250/2503 [02:45<02:45,  7.57it/s, loss=1.290, acc=0.713, val_acc=0.000]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+
+                                                                        [A
+Epoch 2:  50%|████▉     | 1250/2503 [02:45<02:45,  7.57it/s, loss=1.050, acc=0.754, val_acc=0.795]
+Epoch 2:  52%|█████▏    | 1300/2503 [02:51<02:38,  7.57it/s, loss=1.050, acc=0.754, val_acc=0.795]
+Epoch 2:  52%|█████▏    | 1300/2503 [02:51<02:38,  7.57it/s, loss=1.270, acc=0.705, val_acc=0.795]
+Epoch 2:  54%|█████▍    | 1350/2503 [02:57<02:31,  7.60it/s, loss=1.270, acc=0.705, val_acc=0.795]
+Epoch 2:  54%|█████▍    | 1350/2503 [02:57<02:31,  7.60it/s, loss=1.270, acc=0.725, val_acc=0.795]
+Epoch 2:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.59it/s, loss=1.270, acc=0.725, val_acc=0.795]
+Epoch 2:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.59it/s, loss=1.140, acc=0.730, val_acc=0.795]
+Epoch 2:  58%|█████▊    | 1450/2503 [03:11<02:19,  7.55it/s, loss=1.140, acc=0.730, val_acc=0.795]
+Epoch 2:  58%|█████▊    | 1450/2503 [03:11<02:19,  7.55it/s, loss=1.180, acc=0.742, val_acc=0.795]
+Epoch 2:  60%|█████▉    | 1500/2503 [03:19<02:13,  7.51it/s, loss=1.180, acc=0.742, val_acc=0.795]
+Epoch 2:  60%|█████▉    | 1500/2503 [03:19<02:13,  7.51it/s, loss=1.080, acc=0.766, val_acc=0.795]
+Epoch 2:  62%|██████▏   | 1550/2503 [03:28<02:08,  7.44it/s, loss=1.080, acc=0.766, val_acc=0.795]
+Epoch 2:  62%|██████▏   | 1550/2503 [03:28<02:08,  7.44it/s, loss=1.370, acc=0.705, val_acc=0.795]
+Epoch 2:  64%|██████▍   | 1600/2503 [03:36<02:02,  7.39it/s, loss=1.370, acc=0.705, val_acc=0.795]
+Epoch 2:  64%|██████▍   | 1600/2503 [03:36<02:02,  7.39it/s, loss=1.220, acc=0.695, val_acc=0.795]
+Epoch 2:  66%|██████▌   | 1650/2503 [03:46<01:56,  7.30it/s, loss=1.220, acc=0.695, val_acc=0.795]
+Epoch 2:  66%|██████▌   | 1650/2503 [03:46<01:56,  7.30it/s, loss=1.080, acc=0.756, val_acc=0.795]
+Epoch 2:  68%|██████▊   | 1700/2503 [03:56<01:51,  7.20it/s, loss=1.080, acc=0.756, val_acc=0.795]
+Epoch 2:  68%|██████▊   | 1700/2503 [03:56<01:51,  7.20it/s, loss=1.320, acc=0.703, val_acc=0.795]
+Epoch 2:  70%|██████▉   | 1750/2503 [04:06<01:46,  7.09it/s, loss=1.320, acc=0.703, val_acc=0.795]
+Epoch 2:  70%|██████▉   | 1750/2503 [04:06<01:46,  7.09it/s, loss=1.360, acc=0.701, val_acc=0.795]
+Epoch 2:  72%|███████▏  | 1800/2503 [04:17<01:40,  6.99it/s, loss=1.360, acc=0.701, val_acc=0.795]
+Epoch 2:  72%|███████▏  | 1800/2503 [04:17<01:40,  6.99it/s, loss=1.330, acc=0.672, val_acc=0.795]
+Epoch 2:  74%|███████▍  | 1850/2503 [04:30<01:35,  6.85it/s, loss=1.330, acc=0.672, val_acc=0.795]
+Epoch 2:  74%|███████▍  | 1850/2503 [04:30<01:35,  6.85it/s, loss=1.110, acc=0.752, val_acc=0.795]
+Epoch 2:  76%|███████▌  | 1900/2503 [04:43<01:29,  6.71it/s, loss=1.110, acc=0.752, val_acc=0.795]
+Epoch 2:  76%|███████▌  | 1900/2503 [04:43<01:29,  6.71it/s, loss=1.240, acc=0.711, val_acc=0.795]
+Epoch 2:  78%|███████▊  | 1950/2503 [04:57<01:24,  6.56it/s, loss=1.240, acc=0.711, val_acc=0.795]
+Epoch 2:  78%|███████▊  | 1950/2503 [04:57<01:24,  6.56it/s, loss=1.390, acc=0.693, val_acc=0.795]
+Epoch 2:  80%|███████▉  | 2000/2503 [05:12<01:18,  6.40it/s, loss=1.390, acc=0.693, val_acc=0.795]
+Epoch 2:  80%|███████▉  | 2000/2503 [05:12<01:18,  6.40it/s, loss=1.200, acc=0.736, val_acc=0.795]
+Epoch 2:  82%|████████▏ | 2050/2503 [05:29<01:12,  6.22it/s, loss=1.200, acc=0.736, val_acc=0.795]
+Epoch 2:  82%|████████▏ | 2050/2503 [05:29<01:12,  6.22it/s, loss=1.290, acc=0.730, val_acc=0.795]
+Epoch 2:  84%|████████▍ | 2100/2503 [05:47<01:06,  6.05it/s, loss=1.290, acc=0.730, val_acc=0.795]
+Epoch 2:  84%|████████▍ | 2100/2503 [05:47<01:06,  6.05it/s, loss=1.360, acc=0.717, val_acc=0.795]
+Epoch 2:  86%|████████▌ | 2150/2503 [06:05<00:59,  5.89it/s, loss=1.360, acc=0.717, val_acc=0.795]
+Epoch 2:  86%|████████▌ | 2150/2503 [06:05<00:59,  5.89it/s, loss=1.320, acc=0.689, val_acc=0.795]
+Epoch 2:  88%|████████▊ | 2200/2503 [06:22<00:52,  5.75it/s, loss=1.320, acc=0.689, val_acc=0.795]
+Epoch 2:  88%|████████▊ | 2200/2503 [06:22<00:52,  5.75it/s, loss=1.190, acc=0.725, val_acc=0.795]
+Epoch 2:  90%|████████▉ | 2250/2503 [06:41<00:45,  5.60it/s, loss=1.190, acc=0.725, val_acc=0.795]
+Epoch 2:  90%|████████▉ | 2250/2503 [06:41<00:45,  5.60it/s, loss=1.280, acc=0.707, val_acc=0.795]
+Epoch 2:  92%|█████████▏| 2300/2503 [07:00<00:37,  5.48it/s, loss=1.280, acc=0.707, val_acc=0.795]
+Epoch 2:  92%|█████████▏| 2300/2503 [07:00<00:37,  5.48it/s, loss=1.270, acc=0.721, val_acc=0.795]
+Epoch 2:  94%|█████████▍| 2350/2503 [07:17<00:28,  5.37it/s, loss=1.270, acc=0.721, val_acc=0.795]
+Epoch 2:  94%|█████████▍| 2350/2503 [07:17<00:28,  5.37it/s, loss=1.410, acc=0.686, val_acc=0.795]
+Epoch 2:  96%|█████████▌| 2400/2503 [07:36<00:19,  5.26it/s, loss=1.410, acc=0.686, val_acc=0.795]
+Epoch 2:  96%|█████████▌| 2400/2503 [07:36<00:19,  5.26it/s, loss=1.210, acc=0.715, val_acc=0.795]
+Epoch 2:  98%|█████████▊| 2450/2503 [07:54<00:10,  5.16it/s, loss=1.210, acc=0.715, val_acc=0.795]
+Epoch 2:  98%|█████████▊| 2450/2503 [07:54<00:10,  5.16it/s, loss=1.350, acc=0.711, val_acc=0.795]
+Epoch 2: 100%|█████████▉| 2500/2503 [08:10<00:00,  5.09it/s, loss=1.350, acc=0.711, val_acc=0.795]
+Epoch 2: 100%|█████████▉| 2500/2503 [08:10<00:00,  5.09it/s, loss=1.300, acc=0.697, val_acc=0.795]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:04,  9.87it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.59it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 2: 100%|█████████▉| 2500/2503 [08:22<00:00,  4.97it/s, loss=1.300, acc=0.697, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.15it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 2
+
+Epoch 2: 100%|█████████▉| 2500/2503 [08:22<00:00,  4.97it/s, loss=1.300, acc=0.697, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.15it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 2: 100%|█████████▉| 2500/2503 [08:22<00:00,  4.97it/s, loss=1.300, acc=0.697, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.15it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8126
+
+Epoch 2: 100%|█████████▉| 2500/2503 [08:22<00:00,  4.97it/s, loss=1.300, acc=0.697, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.15it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7959
+
+Epoch 2: 100%|█████████▉| 2500/2503 [08:22<00:00,  4.97it/s, loss=1.300, acc=0.697, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.15it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9454
+
+Epoch 2: 100%|█████████▉| 2500/2503 [08:22<00:00,  4.97it/s, loss=1.300, acc=0.697, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.15it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 2: 100%|█████████▉| 2500/2503 [08:22<00:00,  4.97it/s, loss=1.300, acc=0.697, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.15it/s][A
+
+                                                                        [A
+Epoch 2: 100%|█████████▉| 2500/2503 [08:22<00:00,  4.97it/s, loss=1.410, acc=0.697, val_acc=0.794]
+Epoch 2: 100%|██████████| 2503/2503 [08:23<00:00,  4.97it/s, loss=1.410, acc=0.697, val_acc=0.794]
+Epoch 2: 100%|██████████| 2503/2503 [08:23<00:00,  4.97it/s, loss=1.190, acc=0.681, val_acc=0.794]
+Epoch 2: 100%|██████████| 2503/2503 [08:23<00:00,  4.97it/s, loss=1.190, acc=0.681, val_acc=0.794]
+Epoch 2:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.190, acc=0.681, val_acc=0.794]           
+Epoch 3:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.190, acc=0.681, val_acc=0.794]
+Epoch 3:   2%|▏         | 50/2503 [00:07<05:52,  6.96it/s, loss=1.190, acc=0.681, val_acc=0.794]
+Epoch 3:   2%|▏         | 50/2503 [00:07<05:52,  6.96it/s, loss=1.010, acc=0.754, val_acc=0.794]
+Epoch 3:   4%|▍         | 100/2503 [00:13<05:18,  7.54it/s, loss=1.010, acc=0.754, val_acc=0.794]
+Epoch 3:   4%|▍         | 100/2503 [00:13<05:18,  7.54it/s, loss=1.280, acc=0.711, val_acc=0.794]
+Epoch 3:   6%|▌         | 150/2503 [00:19<05:02,  7.77it/s, loss=1.280, acc=0.711, val_acc=0.794]
+Epoch 3:   6%|▌         | 150/2503 [00:19<05:02,  7.77it/s, loss=1.180, acc=0.730, val_acc=0.794]
+Epoch 3:   8%|▊         | 200/2503 [00:25<04:52,  7.88it/s, loss=1.180, acc=0.730, val_acc=0.794]
+Epoch 3:   8%|▊         | 200/2503 [00:25<04:52,  7.88it/s, loss=1.210, acc=0.723, val_acc=0.794]
+Epoch 3:  10%|▉         | 250/2503 [00:31<04:43,  7.95it/s, loss=1.210, acc=0.723, val_acc=0.794]
+Epoch 3:  10%|▉         | 250/2503 [00:31<04:43,  7.95it/s, loss=1.260, acc=0.699, val_acc=0.794]
+Epoch 3:  12%|█▏        | 300/2503 [00:37<04:35,  7.99it/s, loss=1.260, acc=0.699, val_acc=0.794]
+Epoch 3:  12%|█▏        | 300/2503 [00:37<04:35,  7.99it/s, loss=1.210, acc=0.732, val_acc=0.794]
+Epoch 3:  14%|█▍        | 350/2503 [00:43<04:28,  8.02it/s, loss=1.210, acc=0.732, val_acc=0.794]
+Epoch 3:  14%|█▍        | 350/2503 [00:43<04:28,  8.02it/s, loss=1.110, acc=0.750, val_acc=0.794]
+Epoch 3:  16%|█▌        | 400/2503 [00:49<04:21,  8.05it/s, loss=1.110, acc=0.750, val_acc=0.794]
+Epoch 3:  16%|█▌        | 400/2503 [00:49<04:21,  8.05it/s, loss=1.160, acc=0.740, val_acc=0.794]
+Epoch 3:  18%|█▊        | 450/2503 [00:55<04:14,  8.07it/s, loss=1.160, acc=0.740, val_acc=0.794]
+Epoch 3:  18%|█▊        | 450/2503 [00:55<04:14,  8.07it/s, loss=1.080, acc=0.727, val_acc=0.794]
+Epoch 3:  20%|█▉        | 500/2503 [01:01<04:07,  8.08it/s, loss=1.080, acc=0.727, val_acc=0.794]
+Epoch 3:  20%|█▉        | 500/2503 [01:01<04:07,  8.08it/s, loss=1.340, acc=0.705, val_acc=0.794]
+Epoch 3:  22%|██▏       | 550/2503 [01:07<04:01,  8.09it/s, loss=1.340, acc=0.705, val_acc=0.794]
+Epoch 3:  22%|██▏       | 550/2503 [01:07<04:01,  8.09it/s, loss=1.250, acc=0.707, val_acc=0.794]
+Epoch 3:  24%|██▍       | 600/2503 [01:14<03:54,  8.10it/s, loss=1.250, acc=0.707, val_acc=0.794]
+Epoch 3:  24%|██▍       | 600/2503 [01:14<03:54,  8.10it/s, loss=1.240, acc=0.711, val_acc=0.794]
+Epoch 3:  26%|██▌       | 650/2503 [01:20<03:48,  8.11it/s, loss=1.240, acc=0.711, val_acc=0.794]
+Epoch 3:  26%|██▌       | 650/2503 [01:20<03:48,  8.11it/s, loss=1.280, acc=0.699, val_acc=0.794]
+Epoch 3:  28%|██▊       | 700/2503 [01:26<03:42,  8.11it/s, loss=1.280, acc=0.699, val_acc=0.794]
+Epoch 3:  28%|██▊       | 700/2503 [01:26<03:42,  8.11it/s, loss=1.160, acc=0.729, val_acc=0.794]
+Epoch 3:  30%|██▉       | 750/2503 [01:32<03:35,  8.12it/s, loss=1.160, acc=0.729, val_acc=0.794]
+Epoch 3:  30%|██▉       | 750/2503 [01:32<03:35,  8.12it/s, loss=1.310, acc=0.697, val_acc=0.794]
+Epoch 3:  32%|███▏      | 800/2503 [01:38<03:29,  8.12it/s, loss=1.310, acc=0.697, val_acc=0.794]
+Epoch 3:  32%|███▏      | 800/2503 [01:38<03:29,  8.12it/s, loss=1.310, acc=0.689, val_acc=0.794]
+Epoch 3:  34%|███▍      | 850/2503 [01:44<03:23,  8.12it/s, loss=1.310, acc=0.689, val_acc=0.794]
+Epoch 3:  34%|███▍      | 850/2503 [01:44<03:23,  8.12it/s, loss=1.250, acc=0.697, val_acc=0.794]
+Epoch 3:  36%|███▌      | 900/2503 [01:50<03:17,  8.13it/s, loss=1.250, acc=0.697, val_acc=0.794]
+Epoch 3:  36%|███▌      | 900/2503 [01:50<03:17,  8.13it/s, loss=1.210, acc=0.715, val_acc=0.794]
+Epoch 3:  38%|███▊      | 950/2503 [01:56<03:11,  8.13it/s, loss=1.210, acc=0.715, val_acc=0.794]
+Epoch 3:  38%|███▊      | 950/2503 [01:56<03:11,  8.13it/s, loss=1.170, acc=0.744, val_acc=0.794]
+Epoch 3:  40%|███▉      | 1000/2503 [02:03<03:04,  8.13it/s, loss=1.170, acc=0.744, val_acc=0.794]
+Epoch 3:  40%|███▉      | 1000/2503 [02:03<03:04,  8.13it/s, loss=1.330, acc=0.713, val_acc=0.794]
+Epoch 3:  42%|████▏     | 1050/2503 [02:09<02:58,  8.13it/s, loss=1.330, acc=0.713, val_acc=0.794]
+Epoch 3:  42%|████▏     | 1050/2503 [02:09<02:58,  8.13it/s, loss=1.310, acc=0.707, val_acc=0.794]
+Epoch 3:  44%|████▍     | 1100/2503 [02:15<02:52,  8.13it/s, loss=1.310, acc=0.707, val_acc=0.794]
+Epoch 3:  44%|████▍     | 1100/2503 [02:15<02:52,  8.13it/s, loss=1.140, acc=0.730, val_acc=0.794]
+Epoch 3:  46%|████▌     | 1150/2503 [02:21<02:46,  8.13it/s, loss=1.140, acc=0.730, val_acc=0.794]
+Epoch 3:  46%|████▌     | 1150/2503 [02:21<02:46,  8.13it/s, loss=1.210, acc=0.711, val_acc=0.794]
+Epoch 3:  48%|████▊     | 1200/2503 [02:27<02:40,  8.13it/s, loss=1.210, acc=0.711, val_acc=0.794]
+Epoch 3:  48%|████▊     | 1200/2503 [02:27<02:40,  8.13it/s, loss=1.240, acc=0.723, val_acc=0.794]
+Epoch 3:  50%|████▉     | 1250/2503 [02:33<02:34,  8.13it/s, loss=1.240, acc=0.723, val_acc=0.794]
+Epoch 3:  50%|████▉     | 1250/2503 [02:33<02:34,  8.13it/s, loss=1.350, acc=0.682, val_acc=0.794]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:04,  9.77it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.47it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 3:  50%|████▉     | 1250/2503 [02:45<02:46,  7.54it/s, loss=1.350, acc=0.682, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.13it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 3
+
+Epoch 3:  50%|████▉     | 1250/2503 [02:45<02:46,  7.54it/s, loss=1.350, acc=0.682, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.12it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 3:  50%|████▉     | 1250/2503 [02:45<02:46,  7.54it/s, loss=1.350, acc=0.682, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.12it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8191
+
+Epoch 3:  50%|████▉     | 1250/2503 [02:45<02:46,  7.54it/s, loss=1.350, acc=0.682, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.12it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7941
+
+Epoch 3:  50%|████▉     | 1250/2503 [02:45<02:46,  7.54it/s, loss=1.350, acc=0.682, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.12it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9450
+
+Epoch 3:  50%|████▉     | 1250/2503 [02:45<02:46,  7.54it/s, loss=1.350, acc=0.682, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.12it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 3:  50%|████▉     | 1250/2503 [02:45<02:46,  7.54it/s, loss=1.350, acc=0.682, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.12it/s][A
+
+                                                                        [A
+Epoch 3:  50%|████▉     | 1250/2503 [02:45<02:46,  7.54it/s, loss=1.330, acc=0.699, val_acc=0.794]
+Epoch 3:  52%|█████▏    | 1300/2503 [02:52<02:39,  7.54it/s, loss=1.330, acc=0.699, val_acc=0.794]
+Epoch 3:  52%|█████▏    | 1300/2503 [02:52<02:39,  7.54it/s, loss=1.070, acc=0.762, val_acc=0.794]
+Epoch 3:  54%|█████▍    | 1350/2503 [02:58<02:32,  7.56it/s, loss=1.070, acc=0.762, val_acc=0.794]
+Epoch 3:  54%|█████▍    | 1350/2503 [02:58<02:32,  7.56it/s, loss=1.230, acc=0.709, val_acc=0.794]
+Epoch 3:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.58it/s, loss=1.230, acc=0.709, val_acc=0.794]
+Epoch 3:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.58it/s, loss=1.120, acc=0.732, val_acc=0.794]
+Epoch 3:  58%|█████▊    | 1450/2503 [03:10<02:18,  7.60it/s, loss=1.120, acc=0.732, val_acc=0.794]
+Epoch 3:  58%|█████▊    | 1450/2503 [03:10<02:18,  7.60it/s, loss=1.260, acc=0.732, val_acc=0.794]
+Epoch 3:  60%|█████▉    | 1500/2503 [03:16<02:11,  7.62it/s, loss=1.260, acc=0.732, val_acc=0.794]
+Epoch 3:  60%|█████▉    | 1500/2503 [03:16<02:11,  7.62it/s, loss=1.150, acc=0.746, val_acc=0.794]
+Epoch 3:  62%|██████▏   | 1550/2503 [03:22<02:04,  7.64it/s, loss=1.150, acc=0.746, val_acc=0.794]
+Epoch 3:  62%|██████▏   | 1550/2503 [03:22<02:04,  7.64it/s, loss=1.220, acc=0.711, val_acc=0.794]
+Epoch 3:  64%|██████▍   | 1600/2503 [03:29<01:58,  7.65it/s, loss=1.220, acc=0.711, val_acc=0.794]
+Epoch 3:  64%|██████▍   | 1600/2503 [03:29<01:58,  7.65it/s, loss=1.340, acc=0.699, val_acc=0.794]
+Epoch 3:  66%|██████▌   | 1650/2503 [03:35<01:51,  7.67it/s, loss=1.340, acc=0.699, val_acc=0.794]
+Epoch 3:  66%|██████▌   | 1650/2503 [03:35<01:51,  7.67it/s, loss=1.180, acc=0.717, val_acc=0.794]
+Epoch 3:  68%|██████▊   | 1700/2503 [03:41<01:44,  7.68it/s, loss=1.180, acc=0.717, val_acc=0.794]
+Epoch 3:  68%|██████▊   | 1700/2503 [03:41<01:44,  7.68it/s, loss=1.240, acc=0.730, val_acc=0.794]
+Epoch 3:  70%|██████▉   | 1750/2503 [03:47<01:37,  7.69it/s, loss=1.240, acc=0.730, val_acc=0.794]
+Epoch 3:  70%|██████▉   | 1750/2503 [03:47<01:37,  7.69it/s, loss=1.450, acc=0.680, val_acc=0.794]
+Epoch 3:  72%|███████▏  | 1800/2503 [03:53<01:31,  7.70it/s, loss=1.450, acc=0.680, val_acc=0.794]
+Epoch 3:  72%|███████▏  | 1800/2503 [03:53<01:31,  7.70it/s, loss=1.260, acc=0.707, val_acc=0.794]
+Epoch 3:  74%|███████▍  | 1850/2503 [03:59<01:24,  7.71it/s, loss=1.260, acc=0.707, val_acc=0.794]
+Epoch 3:  74%|███████▍  | 1850/2503 [03:59<01:24,  7.71it/s, loss=1.170, acc=0.707, val_acc=0.794]
+Epoch 3:  76%|███████▌  | 1900/2503 [04:05<01:18,  7.73it/s, loss=1.170, acc=0.707, val_acc=0.794]
+Epoch 3:  76%|███████▌  | 1900/2503 [04:05<01:18,  7.73it/s, loss=1.160, acc=0.752, val_acc=0.794]
+Epoch 3:  78%|███████▊  | 1950/2503 [04:12<01:11,  7.74it/s, loss=1.160, acc=0.752, val_acc=0.794]
+Epoch 3:  78%|███████▊  | 1950/2503 [04:12<01:11,  7.74it/s, loss=1.180, acc=0.730, val_acc=0.794]
+Epoch 3:  80%|███████▉  | 2000/2503 [04:18<01:04,  7.75it/s, loss=1.180, acc=0.730, val_acc=0.794]
+Epoch 3:  80%|███████▉  | 2000/2503 [04:18<01:04,  7.75it/s, loss=0.964, acc=0.762, val_acc=0.794]
+Epoch 3:  82%|████████▏ | 2050/2503 [04:24<00:58,  7.76it/s, loss=0.964, acc=0.762, val_acc=0.794]
+Epoch 3:  82%|████████▏ | 2050/2503 [04:24<00:58,  7.76it/s, loss=1.010, acc=0.736, val_acc=0.794]
+Epoch 3:  84%|████████▍ | 2100/2503 [04:30<00:51,  7.76it/s, loss=1.010, acc=0.736, val_acc=0.794]
+Epoch 3:  84%|████████▍ | 2100/2503 [04:30<00:51,  7.76it/s, loss=1.080, acc=0.756, val_acc=0.794]
+Epoch 3:  86%|████████▌ | 2150/2503 [04:36<00:45,  7.77it/s, loss=1.080, acc=0.756, val_acc=0.794]
+Epoch 3:  86%|████████▌ | 2150/2503 [04:36<00:45,  7.77it/s, loss=1.420, acc=0.688, val_acc=0.794]
+Epoch 3:  88%|████████▊ | 2200/2503 [04:42<00:38,  7.78it/s, loss=1.420, acc=0.688, val_acc=0.794]
+Epoch 3:  88%|████████▊ | 2200/2503 [04:42<00:38,  7.78it/s, loss=1.100, acc=0.750, val_acc=0.794]
+Epoch 3:  90%|████████▉ | 2250/2503 [04:48<00:32,  7.79it/s, loss=1.100, acc=0.750, val_acc=0.794]
+Epoch 3:  90%|████████▉ | 2250/2503 [04:48<00:32,  7.79it/s, loss=1.430, acc=0.684, val_acc=0.794]
+Epoch 3:  92%|█████████▏| 2300/2503 [04:54<00:26,  7.80it/s, loss=1.430, acc=0.684, val_acc=0.794]
+Epoch 3:  92%|█████████▏| 2300/2503 [04:54<00:26,  7.80it/s, loss=1.380, acc=0.684, val_acc=0.794]
+Epoch 3:  94%|█████████▍| 2350/2503 [05:01<00:19,  7.80it/s, loss=1.380, acc=0.684, val_acc=0.794]
+Epoch 3:  94%|█████████▍| 2350/2503 [05:01<00:19,  7.80it/s, loss=1.250, acc=0.709, val_acc=0.794]
+Epoch 3:  96%|█████████▌| 2400/2503 [05:07<00:13,  7.81it/s, loss=1.250, acc=0.709, val_acc=0.794]
+Epoch 3:  96%|█████████▌| 2400/2503 [05:07<00:13,  7.81it/s, loss=1.130, acc=0.711, val_acc=0.794]
+Epoch 3:  98%|█████████▊| 2450/2503 [05:13<00:06,  7.82it/s, loss=1.130, acc=0.711, val_acc=0.794]
+Epoch 3:  98%|█████████▊| 2450/2503 [05:13<00:06,  7.82it/s, loss=1.340, acc=0.684, val_acc=0.794]
+Epoch 3: 100%|█████████▉| 2500/2503 [05:19<00:00,  7.82it/s, loss=1.340, acc=0.684, val_acc=0.794]
+Epoch 3: 100%|█████████▉| 2500/2503 [05:19<00:00,  7.82it/s, loss=1.420, acc=0.691, val_acc=0.794]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:04,  9.76it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.47it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 3: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.420, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.21it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 3
+
+Epoch 3: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.420, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.21it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 3: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.420, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.21it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8186
+
+Epoch 3: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.420, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.21it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7943
+
+Epoch 3: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.420, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.21it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9459
+
+Epoch 3: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.420, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.21it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 3: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.420, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.21it/s][A
+
+                                                                        [A
+Epoch 3: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.260, acc=0.727, val_acc=0.794]
+Epoch 3: 100%|██████████| 2503/2503 [05:31<00:00,  7.54it/s, loss=1.260, acc=0.727, val_acc=0.794]
+Epoch 3: 100%|██████████| 2503/2503 [05:31<00:00,  7.54it/s, loss=1.390, acc=0.674, val_acc=0.794]
+Epoch 3: 100%|██████████| 2503/2503 [05:31<00:00,  7.54it/s, loss=1.390, acc=0.674, val_acc=0.794]
+Epoch 3:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.390, acc=0.674, val_acc=0.794]           
+Epoch 4:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.390, acc=0.674, val_acc=0.794]
+Epoch 4:   2%|▏         | 50/2503 [00:07<05:51,  6.99it/s, loss=1.390, acc=0.674, val_acc=0.794]
+Epoch 4:   2%|▏         | 50/2503 [00:07<05:51,  6.99it/s, loss=1.200, acc=0.701, val_acc=0.794]
+Epoch 4:   4%|▍         | 100/2503 [00:13<05:19,  7.53it/s, loss=1.200, acc=0.701, val_acc=0.794]
+Epoch 4:   4%|▍         | 100/2503 [00:13<05:19,  7.53it/s, loss=1.210, acc=0.719, val_acc=0.794]
+Epoch 4:   6%|▌         | 150/2503 [00:19<05:04,  7.73it/s, loss=1.210, acc=0.719, val_acc=0.794]
+Epoch 4:   6%|▌         | 150/2503 [00:19<05:04,  7.73it/s, loss=1.050, acc=0.750, val_acc=0.794]
+Epoch 4:   8%|▊         | 200/2503 [00:25<04:53,  7.84it/s, loss=1.050, acc=0.750, val_acc=0.794]
+Epoch 4:   8%|▊         | 200/2503 [00:25<04:53,  7.84it/s, loss=1.010, acc=0.764, val_acc=0.794]
+Epoch 4:  10%|▉         | 250/2503 [00:31<04:45,  7.90it/s, loss=1.010, acc=0.764, val_acc=0.794]
+Epoch 4:  10%|▉         | 250/2503 [00:31<04:45,  7.90it/s, loss=1.230, acc=0.713, val_acc=0.794]
+Epoch 4:  12%|█▏        | 300/2503 [00:37<04:37,  7.95it/s, loss=1.230, acc=0.713, val_acc=0.794]
+Epoch 4:  12%|█▏        | 300/2503 [00:37<04:37,  7.95it/s, loss=1.230, acc=0.729, val_acc=0.794]
+Epoch 4:  14%|█▍        | 350/2503 [00:43<04:29,  7.98it/s, loss=1.230, acc=0.729, val_acc=0.794]
+Epoch 4:  14%|█▍        | 350/2503 [00:43<04:29,  7.98it/s, loss=1.140, acc=0.719, val_acc=0.794]
+Epoch 4:  16%|█▌        | 400/2503 [00:49<04:22,  8.00it/s, loss=1.140, acc=0.719, val_acc=0.794]
+Epoch 4:  16%|█▌        | 400/2503 [00:49<04:22,  8.00it/s, loss=1.110, acc=0.746, val_acc=0.794]
+Epoch 4:  18%|█▊        | 450/2503 [00:56<04:16,  8.02it/s, loss=1.110, acc=0.746, val_acc=0.794]
+Epoch 4:  18%|█▊        | 450/2503 [00:56<04:16,  8.02it/s, loss=1.350, acc=0.689, val_acc=0.794]
+Epoch 4:  20%|█▉        | 500/2503 [01:02<04:09,  8.03it/s, loss=1.350, acc=0.689, val_acc=0.794]
+Epoch 4:  20%|█▉        | 500/2503 [01:02<04:09,  8.03it/s, loss=1.350, acc=0.701, val_acc=0.794]
+Epoch 4:  22%|██▏       | 550/2503 [01:08<04:02,  8.04it/s, loss=1.350, acc=0.701, val_acc=0.794]
+Epoch 4:  22%|██▏       | 550/2503 [01:08<04:02,  8.04it/s, loss=1.290, acc=0.699, val_acc=0.794]
+Epoch 4:  24%|██▍       | 600/2503 [01:14<03:56,  8.05it/s, loss=1.290, acc=0.699, val_acc=0.794]
+Epoch 4:  24%|██▍       | 600/2503 [01:14<03:56,  8.05it/s, loss=1.200, acc=0.732, val_acc=0.794]
+Epoch 4:  26%|██▌       | 650/2503 [01:20<03:49,  8.06it/s, loss=1.200, acc=0.732, val_acc=0.794]
+Epoch 4:  26%|██▌       | 650/2503 [01:20<03:49,  8.06it/s, loss=1.240, acc=0.713, val_acc=0.794]
+Epoch 4:  28%|██▊       | 700/2503 [01:26<03:43,  8.07it/s, loss=1.240, acc=0.713, val_acc=0.794]
+Epoch 4:  28%|██▊       | 700/2503 [01:26<03:43,  8.07it/s, loss=1.250, acc=0.707, val_acc=0.794]
+Epoch 4:  30%|██▉       | 750/2503 [01:32<03:37,  8.07it/s, loss=1.250, acc=0.707, val_acc=0.794]
+Epoch 4:  30%|██▉       | 750/2503 [01:32<03:37,  8.07it/s, loss=1.320, acc=0.707, val_acc=0.794]
+Epoch 4:  32%|███▏      | 800/2503 [01:39<03:30,  8.08it/s, loss=1.320, acc=0.707, val_acc=0.794]
+Epoch 4:  32%|███▏      | 800/2503 [01:39<03:30,  8.08it/s, loss=1.110, acc=0.746, val_acc=0.794]
+Epoch 4:  34%|███▍      | 850/2503 [01:45<03:24,  8.08it/s, loss=1.110, acc=0.746, val_acc=0.794]
+Epoch 4:  34%|███▍      | 850/2503 [01:45<03:24,  8.08it/s, loss=1.220, acc=0.723, val_acc=0.794]
+Epoch 4:  36%|███▌      | 900/2503 [01:51<03:18,  8.09it/s, loss=1.220, acc=0.723, val_acc=0.794]
+Epoch 4:  36%|███▌      | 900/2503 [01:51<03:18,  8.09it/s, loss=1.120, acc=0.752, val_acc=0.794]
+Epoch 4:  38%|███▊      | 950/2503 [01:57<03:11,  8.09it/s, loss=1.120, acc=0.752, val_acc=0.794]
+Epoch 4:  38%|███▊      | 950/2503 [01:57<03:11,  8.09it/s, loss=1.250, acc=0.705, val_acc=0.794]
+Epoch 4:  40%|███▉      | 1000/2503 [02:03<03:05,  8.09it/s, loss=1.250, acc=0.705, val_acc=0.794]
+Epoch 4:  40%|███▉      | 1000/2503 [02:03<03:05,  8.09it/s, loss=1.220, acc=0.721, val_acc=0.794]
+Epoch 4:  42%|████▏     | 1050/2503 [02:09<02:59,  8.10it/s, loss=1.220, acc=0.721, val_acc=0.794]
+Epoch 4:  42%|████▏     | 1050/2503 [02:09<02:59,  8.10it/s, loss=1.280, acc=0.701, val_acc=0.794]
+Epoch 4:  44%|████▍     | 1100/2503 [02:15<02:53,  8.10it/s, loss=1.280, acc=0.701, val_acc=0.794]
+Epoch 4:  44%|████▍     | 1100/2503 [02:15<02:53,  8.10it/s, loss=1.200, acc=0.715, val_acc=0.794]
+Epoch 4:  46%|████▌     | 1150/2503 [02:21<02:46,  8.10it/s, loss=1.200, acc=0.715, val_acc=0.794]
+Epoch 4:  46%|████▌     | 1150/2503 [02:21<02:46,  8.10it/s, loss=1.230, acc=0.707, val_acc=0.794]
+Epoch 4:  48%|████▊     | 1200/2503 [02:28<02:40,  8.10it/s, loss=1.230, acc=0.707, val_acc=0.794]
+Epoch 4:  48%|████▊     | 1200/2503 [02:28<02:40,  8.10it/s, loss=1.290, acc=0.693, val_acc=0.794]
+Epoch 4:  50%|████▉     | 1250/2503 [02:34<02:34,  8.11it/s, loss=1.290, acc=0.693, val_acc=0.794]
+Epoch 4:  50%|████▉     | 1250/2503 [02:34<02:34,  8.11it/s, loss=1.120, acc=0.729, val_acc=0.794]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:04,  9.79it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.49it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 4:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.120, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.09it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 4
+
+Epoch 4:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.120, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.09it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 4:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.120, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.09it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8160
+
+Epoch 4:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.120, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.09it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7958
+
+Epoch 4:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.120, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.09it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9455
+
+Epoch 4:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.120, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.09it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 4:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.120, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.09it/s][A
+
+                                                                        [A
+Epoch 4:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.310, acc=0.713, val_acc=0.794]
+Epoch 4:  52%|█████▏    | 1300/2503 [02:52<02:39,  7.53it/s, loss=1.310, acc=0.713, val_acc=0.794]
+Epoch 4:  52%|█████▏    | 1300/2503 [02:52<02:39,  7.53it/s, loss=1.080, acc=0.750, val_acc=0.794]
+Epoch 4:  54%|█████▍    | 1350/2503 [02:58<02:32,  7.55it/s, loss=1.080, acc=0.750, val_acc=0.794]
+Epoch 4:  54%|█████▍    | 1350/2503 [02:58<02:32,  7.55it/s, loss=1.380, acc=0.680, val_acc=0.794]
+Epoch 4:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.57it/s, loss=1.380, acc=0.680, val_acc=0.794]
+Epoch 4:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.57it/s, loss=1.350, acc=0.688, val_acc=0.794]
+Epoch 4:  58%|█████▊    | 1450/2503 [03:11<02:18,  7.59it/s, loss=1.350, acc=0.688, val_acc=0.794]
+Epoch 4:  58%|█████▊    | 1450/2503 [03:11<02:18,  7.59it/s, loss=1.210, acc=0.711, val_acc=0.794]
+Epoch 4:  60%|█████▉    | 1500/2503 [03:17<02:11,  7.61it/s, loss=1.210, acc=0.711, val_acc=0.794]
+Epoch 4:  60%|█████▉    | 1500/2503 [03:17<02:11,  7.61it/s, loss=1.180, acc=0.727, val_acc=0.794]
+Epoch 4:  62%|██████▏   | 1550/2503 [03:23<02:05,  7.62it/s, loss=1.180, acc=0.727, val_acc=0.794]
+Epoch 4:  62%|██████▏   | 1550/2503 [03:23<02:05,  7.62it/s, loss=1.280, acc=0.693, val_acc=0.794]
+Epoch 4:  64%|██████▍   | 1600/2503 [03:29<01:58,  7.63it/s, loss=1.280, acc=0.693, val_acc=0.794]
+Epoch 4:  64%|██████▍   | 1600/2503 [03:29<01:58,  7.63it/s, loss=1.280, acc=0.711, val_acc=0.794]
+Epoch 4:  66%|██████▌   | 1650/2503 [03:35<01:51,  7.65it/s, loss=1.280, acc=0.711, val_acc=0.794]
+Epoch 4:  66%|██████▌   | 1650/2503 [03:35<01:51,  7.65it/s, loss=1.180, acc=0.701, val_acc=0.794]
+Epoch 4:  68%|██████▊   | 1700/2503 [03:41<01:44,  7.66it/s, loss=1.180, acc=0.701, val_acc=0.794]
+Epoch 4:  68%|██████▊   | 1700/2503 [03:41<01:44,  7.66it/s, loss=1.060, acc=0.732, val_acc=0.794]
+Epoch 4:  70%|██████▉   | 1750/2503 [03:48<01:38,  7.67it/s, loss=1.060, acc=0.732, val_acc=0.794]
+Epoch 4:  70%|██████▉   | 1750/2503 [03:48<01:38,  7.67it/s, loss=1.200, acc=0.740, val_acc=0.794]
+Epoch 4:  72%|███████▏  | 1800/2503 [03:54<01:31,  7.68it/s, loss=1.200, acc=0.740, val_acc=0.794]
+Epoch 4:  72%|███████▏  | 1800/2503 [03:54<01:31,  7.68it/s, loss=1.230, acc=0.713, val_acc=0.794]
+Epoch 4:  74%|███████▍  | 1850/2503 [04:00<01:24,  7.69it/s, loss=1.230, acc=0.713, val_acc=0.794]
+Epoch 4:  74%|███████▍  | 1850/2503 [04:00<01:24,  7.69it/s, loss=1.310, acc=0.717, val_acc=0.794]
+Epoch 4:  76%|███████▌  | 1900/2503 [04:06<01:18,  7.70it/s, loss=1.310, acc=0.717, val_acc=0.794]
+Epoch 4:  76%|███████▌  | 1900/2503 [04:06<01:18,  7.70it/s, loss=1.190, acc=0.701, val_acc=0.794]
+Epoch 4:  78%|███████▊  | 1950/2503 [04:12<01:11,  7.72it/s, loss=1.190, acc=0.701, val_acc=0.794]
+Epoch 4:  78%|███████▊  | 1950/2503 [04:12<01:11,  7.72it/s, loss=1.120, acc=0.711, val_acc=0.794]
+Epoch 4:  80%|███████▉  | 2000/2503 [04:18<01:05,  7.73it/s, loss=1.120, acc=0.711, val_acc=0.794]
+Epoch 4:  80%|███████▉  | 2000/2503 [04:18<01:05,  7.73it/s, loss=1.180, acc=0.736, val_acc=0.794]
+Epoch 4:  82%|████████▏ | 2050/2503 [04:25<00:58,  7.73it/s, loss=1.180, acc=0.736, val_acc=0.794]
+Epoch 4:  82%|████████▏ | 2050/2503 [04:25<00:58,  7.73it/s, loss=1.090, acc=0.738, val_acc=0.794]
+Epoch 4:  84%|████████▍ | 2100/2503 [04:31<00:52,  7.74it/s, loss=1.090, acc=0.738, val_acc=0.794]
+Epoch 4:  84%|████████▍ | 2100/2503 [04:31<00:52,  7.74it/s, loss=1.150, acc=0.736, val_acc=0.794]
+Epoch 4:  86%|████████▌ | 2150/2503 [04:37<00:45,  7.75it/s, loss=1.150, acc=0.736, val_acc=0.794]
+Epoch 4:  86%|████████▌ | 2150/2503 [04:37<00:45,  7.75it/s, loss=1.370, acc=0.691, val_acc=0.794]
+Epoch 4:  88%|████████▊ | 2200/2503 [04:43<00:39,  7.76it/s, loss=1.370, acc=0.691, val_acc=0.794]
+Epoch 4:  88%|████████▊ | 2200/2503 [04:43<00:39,  7.76it/s, loss=1.060, acc=0.744, val_acc=0.794]
+Epoch 4:  90%|████████▉ | 2250/2503 [04:49<00:32,  7.77it/s, loss=1.060, acc=0.744, val_acc=0.794]
+Epoch 4:  90%|████████▉ | 2250/2503 [04:49<00:32,  7.77it/s, loss=1.250, acc=0.736, val_acc=0.794]
+Epoch 4:  92%|█████████▏| 2300/2503 [04:55<00:26,  7.78it/s, loss=1.250, acc=0.736, val_acc=0.794]
+Epoch 4:  92%|█████████▏| 2300/2503 [04:55<00:26,  7.78it/s, loss=1.330, acc=0.719, val_acc=0.794]
+Epoch 4:  94%|█████████▍| 2350/2503 [05:01<00:19,  7.78it/s, loss=1.330, acc=0.719, val_acc=0.794]
+Epoch 4:  94%|█████████▍| 2350/2503 [05:01<00:19,  7.78it/s, loss=1.400, acc=0.680, val_acc=0.794]
+Epoch 4:  96%|█████████▌| 2400/2503 [05:08<00:13,  7.79it/s, loss=1.400, acc=0.680, val_acc=0.794]
+Epoch 4:  96%|█████████▌| 2400/2503 [05:08<00:13,  7.79it/s, loss=1.080, acc=0.746, val_acc=0.794]
+Epoch 4:  98%|█████████▊| 2450/2503 [05:14<00:06,  7.80it/s, loss=1.080, acc=0.746, val_acc=0.794]
+Epoch 4:  98%|█████████▊| 2450/2503 [05:14<00:06,  7.80it/s, loss=1.310, acc=0.691, val_acc=0.794]
+Epoch 4: 100%|█████████▉| 2500/2503 [05:20<00:00,  7.81it/s, loss=1.310, acc=0.691, val_acc=0.794]
+Epoch 4: 100%|█████████▉| 2500/2503 [05:20<00:00,  7.81it/s, loss=1.110, acc=0.740, val_acc=0.794]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:04,  9.77it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.51it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 4: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.53it/s, loss=1.110, acc=0.740, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.25it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 4
+
+Epoch 4: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.53it/s, loss=1.110, acc=0.740, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.25it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 4: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.53it/s, loss=1.110, acc=0.740, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.25it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8156
+
+Epoch 4: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.53it/s, loss=1.110, acc=0.740, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.25it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7958
+
+Epoch 4: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.53it/s, loss=1.110, acc=0.740, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.25it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9445
+
+Epoch 4: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.53it/s, loss=1.110, acc=0.740, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.25it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 4: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.53it/s, loss=1.110, acc=0.740, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.25it/s][A
+
+                                                                        [A
+Epoch 4: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.53it/s, loss=1.230, acc=0.715, val_acc=0.795]
+Epoch 4: 100%|██████████| 2503/2503 [05:32<00:00,  7.52it/s, loss=1.230, acc=0.715, val_acc=0.795]
+Epoch 4: 100%|██████████| 2503/2503 [05:32<00:00,  7.52it/s, loss=1.520, acc=0.660, val_acc=0.795]
+Epoch 4: 100%|██████████| 2503/2503 [05:32<00:00,  7.52it/s, loss=1.520, acc=0.660, val_acc=0.795]
+Epoch 4:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.520, acc=0.660, val_acc=0.795]           
+Epoch 5:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.520, acc=0.660, val_acc=0.795]
+Epoch 5:   2%|▏         | 50/2503 [00:07<05:54,  6.92it/s, loss=1.520, acc=0.660, val_acc=0.795]
+Epoch 5:   2%|▏         | 50/2503 [00:07<05:54,  6.92it/s, loss=1.130, acc=0.740, val_acc=0.795]
+Epoch 5:   4%|▍         | 100/2503 [00:13<05:20,  7.49it/s, loss=1.130, acc=0.740, val_acc=0.795]
+Epoch 5:   4%|▍         | 100/2503 [00:13<05:20,  7.49it/s, loss=1.230, acc=0.713, val_acc=0.795]
+Epoch 5:   6%|▌         | 150/2503 [00:19<05:05,  7.71it/s, loss=1.230, acc=0.713, val_acc=0.795]
+Epoch 5:   6%|▌         | 150/2503 [00:19<05:05,  7.71it/s, loss=1.240, acc=0.723, val_acc=0.795]
+Epoch 5:   8%|▊         | 200/2503 [00:25<04:54,  7.82it/s, loss=1.240, acc=0.723, val_acc=0.795]
+Epoch 5:   8%|▊         | 200/2503 [00:25<04:54,  7.82it/s, loss=1.220, acc=0.727, val_acc=0.795]
+Epoch 5:  10%|▉         | 250/2503 [00:31<04:45,  7.88it/s, loss=1.220, acc=0.727, val_acc=0.795]
+Epoch 5:  10%|▉         | 250/2503 [00:31<04:45,  7.88it/s, loss=1.210, acc=0.730, val_acc=0.795]
+Epoch 5:  12%|█▏        | 300/2503 [00:37<04:37,  7.93it/s, loss=1.210, acc=0.730, val_acc=0.795]
+Epoch 5:  12%|█▏        | 300/2503 [00:37<04:37,  7.93it/s, loss=1.050, acc=0.748, val_acc=0.795]
+Epoch 5:  14%|█▍        | 350/2503 [00:43<04:30,  7.96it/s, loss=1.050, acc=0.748, val_acc=0.795]
+Epoch 5:  14%|█▍        | 350/2503 [00:43<04:30,  7.96it/s, loss=1.030, acc=0.754, val_acc=0.795]
+Epoch 5:  16%|█▌        | 400/2503 [00:50<04:23,  7.98it/s, loss=1.030, acc=0.754, val_acc=0.795]
+Epoch 5:  16%|█▌        | 400/2503 [00:50<04:23,  7.98it/s, loss=1.340, acc=0.672, val_acc=0.795]
+Epoch 5:  18%|█▊        | 450/2503 [00:56<04:16,  8.00it/s, loss=1.340, acc=0.672, val_acc=0.795]
+Epoch 5:  18%|█▊        | 450/2503 [00:56<04:16,  8.00it/s, loss=1.160, acc=0.730, val_acc=0.795]
+Epoch 5:  20%|█▉        | 500/2503 [01:02<04:09,  8.02it/s, loss=1.160, acc=0.730, val_acc=0.795]
+Epoch 5:  20%|█▉        | 500/2503 [01:02<04:09,  8.02it/s, loss=1.360, acc=0.701, val_acc=0.795]
+Epoch 5:  22%|██▏       | 550/2503 [01:08<04:03,  8.03it/s, loss=1.360, acc=0.701, val_acc=0.795]
+Epoch 5:  22%|██▏       | 550/2503 [01:08<04:03,  8.03it/s, loss=1.220, acc=0.709, val_acc=0.795]
+Epoch 5:  24%|██▍       | 600/2503 [01:14<03:56,  8.04it/s, loss=1.220, acc=0.709, val_acc=0.795]
+Epoch 5:  24%|██▍       | 600/2503 [01:14<03:56,  8.04it/s, loss=1.240, acc=0.711, val_acc=0.795]
+Epoch 5:  26%|██▌       | 650/2503 [01:20<03:50,  8.05it/s, loss=1.240, acc=0.711, val_acc=0.795]
+Epoch 5:  26%|██▌       | 650/2503 [01:20<03:50,  8.05it/s, loss=0.987, acc=0.770, val_acc=0.795]
+Epoch 5:  28%|██▊       | 700/2503 [01:26<03:43,  8.06it/s, loss=0.987, acc=0.770, val_acc=0.795]
+Epoch 5:  28%|██▊       | 700/2503 [01:26<03:43,  8.06it/s, loss=1.140, acc=0.742, val_acc=0.795]
+Epoch 5:  30%|██▉       | 750/2503 [01:32<03:37,  8.07it/s, loss=1.140, acc=0.742, val_acc=0.795]
+Epoch 5:  30%|██▉       | 750/2503 [01:32<03:37,  8.07it/s, loss=1.200, acc=0.727, val_acc=0.795]
+Epoch 5:  32%|███▏      | 800/2503 [01:39<03:30,  8.07it/s, loss=1.200, acc=0.727, val_acc=0.795]
+Epoch 5:  32%|███▏      | 800/2503 [01:39<03:30,  8.07it/s, loss=1.260, acc=0.699, val_acc=0.795]
+Epoch 5:  34%|███▍      | 850/2503 [01:45<03:24,  8.08it/s, loss=1.260, acc=0.699, val_acc=0.795]
+Epoch 5:  34%|███▍      | 850/2503 [01:45<03:24,  8.08it/s, loss=1.260, acc=0.730, val_acc=0.795]
+Epoch 5:  36%|███▌      | 900/2503 [01:51<03:18,  8.08it/s, loss=1.260, acc=0.730, val_acc=0.795]
+Epoch 5:  36%|███▌      | 900/2503 [01:51<03:18,  8.08it/s, loss=1.340, acc=0.699, val_acc=0.795]
+Epoch 5:  38%|███▊      | 950/2503 [01:57<03:12,  8.08it/s, loss=1.340, acc=0.699, val_acc=0.795]
+Epoch 5:  38%|███▊      | 950/2503 [01:57<03:12,  8.08it/s, loss=1.190, acc=0.723, val_acc=0.795]
+Epoch 5:  40%|███▉      | 1000/2503 [02:03<03:05,  8.09it/s, loss=1.190, acc=0.723, val_acc=0.795]
+Epoch 5:  40%|███▉      | 1000/2503 [02:03<03:05,  8.09it/s, loss=1.110, acc=0.740, val_acc=0.795]
+Epoch 5:  42%|████▏     | 1050/2503 [02:09<02:59,  8.09it/s, loss=1.110, acc=0.740, val_acc=0.795]
+Epoch 5:  42%|████▏     | 1050/2503 [02:09<02:59,  8.09it/s, loss=1.200, acc=0.709, val_acc=0.795]
+Epoch 5:  44%|████▍     | 1100/2503 [02:15<02:53,  8.09it/s, loss=1.200, acc=0.709, val_acc=0.795]
+Epoch 5:  44%|████▍     | 1100/2503 [02:15<02:53,  8.09it/s, loss=1.430, acc=0.686, val_acc=0.795]
+Epoch 5:  46%|████▌     | 1150/2503 [02:22<02:47,  8.10it/s, loss=1.430, acc=0.686, val_acc=0.795]
+Epoch 5:  46%|████▌     | 1150/2503 [02:22<02:47,  8.10it/s, loss=1.130, acc=0.748, val_acc=0.795]
+Epoch 5:  48%|████▊     | 1200/2503 [02:28<02:40,  8.10it/s, loss=1.130, acc=0.748, val_acc=0.795]
+Epoch 5:  48%|████▊     | 1200/2503 [02:28<02:40,  8.10it/s, loss=1.130, acc=0.738, val_acc=0.795]
+Epoch 5:  50%|████▉     | 1250/2503 [02:34<02:34,  8.10it/s, loss=1.130, acc=0.738, val_acc=0.795]
+Epoch 5:  50%|████▉     | 1250/2503 [02:34<02:34,  8.10it/s, loss=1.420, acc=0.691, val_acc=0.795]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:04,  9.82it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.52it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 5:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.420, acc=0.691, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.26it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 5
+
+Epoch 5:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.420, acc=0.691, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.26it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 5:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.420, acc=0.691, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.26it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8190
+
+Epoch 5:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.420, acc=0.691, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.26it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7944
+
+Epoch 5:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.420, acc=0.691, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.26it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9463
+
+Epoch 5:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.420, acc=0.691, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.26it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 5:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.420, acc=0.691, val_acc=0.795]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.26it/s][A
+
+                                                                        [A
+Epoch 5:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.210, acc=0.736, val_acc=0.794]
+Epoch 5:  52%|█████▏    | 1300/2503 [02:52<02:39,  7.53it/s, loss=1.210, acc=0.736, val_acc=0.794]
+Epoch 5:  52%|█████▏    | 1300/2503 [02:52<02:39,  7.53it/s, loss=1.130, acc=0.746, val_acc=0.794]
+Epoch 5:  54%|█████▍    | 1350/2503 [02:58<02:32,  7.55it/s, loss=1.130, acc=0.746, val_acc=0.794]
+Epoch 5:  54%|█████▍    | 1350/2503 [02:58<02:32,  7.55it/s, loss=1.280, acc=0.691, val_acc=0.794]
+Epoch 5:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.57it/s, loss=1.280, acc=0.691, val_acc=0.794]
+Epoch 5:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.57it/s, loss=1.310, acc=0.688, val_acc=0.794]
+Epoch 5:  58%|█████▊    | 1450/2503 [03:11<02:18,  7.59it/s, loss=1.310, acc=0.688, val_acc=0.794]
+Epoch 5:  58%|█████▊    | 1450/2503 [03:11<02:18,  7.59it/s, loss=1.180, acc=0.729, val_acc=0.794]
+Epoch 5:  60%|█████▉    | 1500/2503 [03:17<02:11,  7.61it/s, loss=1.180, acc=0.729, val_acc=0.794]
+Epoch 5:  60%|█████▉    | 1500/2503 [03:17<02:11,  7.61it/s, loss=1.340, acc=0.701, val_acc=0.794]
+Epoch 5:  62%|██████▏   | 1550/2503 [03:23<02:05,  7.62it/s, loss=1.340, acc=0.701, val_acc=0.794]
+Epoch 5:  62%|██████▏   | 1550/2503 [03:23<02:05,  7.62it/s, loss=1.080, acc=0.762, val_acc=0.794]
+Epoch 5:  64%|██████▍   | 1600/2503 [03:29<01:58,  7.64it/s, loss=1.080, acc=0.762, val_acc=0.794]
+Epoch 5:  64%|██████▍   | 1600/2503 [03:29<01:58,  7.64it/s, loss=1.250, acc=0.732, val_acc=0.794]
+Epoch 5:  66%|██████▌   | 1650/2503 [03:35<01:51,  7.65it/s, loss=1.250, acc=0.732, val_acc=0.794]
+Epoch 5:  66%|██████▌   | 1650/2503 [03:35<01:51,  7.65it/s, loss=1.150, acc=0.740, val_acc=0.794]
+Epoch 5:  68%|██████▊   | 1700/2503 [03:41<01:44,  7.67it/s, loss=1.150, acc=0.740, val_acc=0.794]
+Epoch 5:  68%|██████▊   | 1700/2503 [03:41<01:44,  7.67it/s, loss=1.080, acc=0.727, val_acc=0.794]
+Epoch 5:  70%|██████▉   | 1750/2503 [03:47<01:38,  7.68it/s, loss=1.080, acc=0.727, val_acc=0.794]
+Epoch 5:  70%|██████▉   | 1750/2503 [03:47<01:38,  7.68it/s, loss=1.210, acc=0.725, val_acc=0.794]
+Epoch 5:  72%|███████▏  | 1800/2503 [03:53<01:31,  7.69it/s, loss=1.210, acc=0.725, val_acc=0.794]
+Epoch 5:  72%|███████▏  | 1800/2503 [03:53<01:31,  7.69it/s, loss=1.170, acc=0.740, val_acc=0.794]
+Epoch 5:  74%|███████▍  | 1850/2503 [04:00<01:24,  7.71it/s, loss=1.170, acc=0.740, val_acc=0.794]
+Epoch 5:  74%|███████▍  | 1850/2503 [04:00<01:24,  7.71it/s, loss=1.260, acc=0.725, val_acc=0.794]
+Epoch 5:  76%|███████▌  | 1900/2503 [04:06<01:18,  7.72it/s, loss=1.260, acc=0.725, val_acc=0.794]
+Epoch 5:  76%|███████▌  | 1900/2503 [04:06<01:18,  7.72it/s, loss=1.210, acc=0.725, val_acc=0.794]
+Epoch 5:  78%|███████▊  | 1950/2503 [04:13<01:11,  7.70it/s, loss=1.210, acc=0.725, val_acc=0.794]
+Epoch 5:  78%|███████▊  | 1950/2503 [04:13<01:11,  7.70it/s, loss=1.420, acc=0.662, val_acc=0.794]
+Epoch 5:  80%|███████▉  | 2000/2503 [04:21<01:05,  7.64it/s, loss=1.420, acc=0.662, val_acc=0.794]
+Epoch 5:  80%|███████▉  | 2000/2503 [04:21<01:05,  7.64it/s, loss=1.390, acc=0.705, val_acc=0.794]
+Epoch 5:  82%|████████▏ | 2050/2503 [04:31<01:00,  7.55it/s, loss=1.390, acc=0.705, val_acc=0.794]
+Epoch 5:  82%|████████▏ | 2050/2503 [04:31<01:00,  7.55it/s, loss=1.080, acc=0.756, val_acc=0.794]
+Epoch 5:  84%|████████▍ | 2100/2503 [04:42<00:54,  7.44it/s, loss=1.080, acc=0.756, val_acc=0.794]
+Epoch 5:  84%|████████▍ | 2100/2503 [04:42<00:54,  7.44it/s, loss=1.270, acc=0.689, val_acc=0.794]
+Epoch 5:  86%|████████▌ | 2150/2503 [04:53<00:48,  7.32it/s, loss=1.270, acc=0.689, val_acc=0.794]
+Epoch 5:  86%|████████▌ | 2150/2503 [04:53<00:48,  7.32it/s, loss=1.230, acc=0.723, val_acc=0.794]
+Epoch 5:  88%|████████▊ | 2200/2503 [05:06<00:42,  7.18it/s, loss=1.230, acc=0.723, val_acc=0.794]
+Epoch 5:  88%|████████▊ | 2200/2503 [05:06<00:42,  7.18it/s, loss=1.410, acc=0.674, val_acc=0.794]
+Epoch 5:  90%|████████▉ | 2250/2503 [05:21<00:36,  7.00it/s, loss=1.410, acc=0.674, val_acc=0.794]
+Epoch 5:  90%|████████▉ | 2250/2503 [05:21<00:36,  7.00it/s, loss=1.070, acc=0.736, val_acc=0.794]
+Epoch 5:  92%|█████████▏| 2300/2503 [05:37<00:29,  6.81it/s, loss=1.070, acc=0.736, val_acc=0.794]
+Epoch 5:  92%|█████████▏| 2300/2503 [05:37<00:29,  6.81it/s, loss=1.190, acc=0.713, val_acc=0.794]
+Epoch 5:  94%|█████████▍| 2350/2503 [05:54<00:23,  6.63it/s, loss=1.190, acc=0.713, val_acc=0.794]
+Epoch 5:  94%|█████████▍| 2350/2503 [05:54<00:23,  6.63it/s, loss=1.270, acc=0.703, val_acc=0.794]
+Epoch 5:  96%|█████████▌| 2400/2503 [06:11<00:15,  6.46it/s, loss=1.270, acc=0.703, val_acc=0.794]
+Epoch 5:  96%|█████████▌| 2400/2503 [06:11<00:15,  6.46it/s, loss=1.300, acc=0.705, val_acc=0.794]
+Epoch 5:  98%|█████████▊| 2450/2503 [06:28<00:08,  6.30it/s, loss=1.300, acc=0.705, val_acc=0.794]
+Epoch 5:  98%|█████████▊| 2450/2503 [06:28<00:08,  6.30it/s, loss=1.300, acc=0.713, val_acc=0.794]
+Epoch 5: 100%|█████████▉| 2500/2503 [06:44<00:00,  6.18it/s, loss=1.300, acc=0.713, val_acc=0.794]
+Epoch 5: 100%|█████████▉| 2500/2503 [06:44<00:00,  6.18it/s, loss=1.130, acc=0.729, val_acc=0.794]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:05,  9.33it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.28it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 5: 100%|█████████▉| 2500/2503 [06:56<00:00,  6.00it/s, loss=1.130, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 5
+
+Epoch 5: 100%|█████████▉| 2500/2503 [06:56<00:00,  6.00it/s, loss=1.130, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 5: 100%|█████████▉| 2500/2503 [06:56<00:00,  6.00it/s, loss=1.130, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8201
+
+Epoch 5: 100%|█████████▉| 2500/2503 [06:56<00:00,  6.00it/s, loss=1.130, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7947
+
+Epoch 5: 100%|█████████▉| 2500/2503 [06:56<00:00,  6.00it/s, loss=1.130, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9440
+
+Epoch 5: 100%|█████████▉| 2500/2503 [06:56<00:00,  6.00it/s, loss=1.130, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 5: 100%|█████████▉| 2500/2503 [06:56<00:00,  6.00it/s, loss=1.130, acc=0.729, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.01it/s][A
+
+                                                                        [A
+Epoch 5: 100%|█████████▉| 2500/2503 [06:56<00:00,  6.00it/s, loss=1.400, acc=0.713, val_acc=0.794]
+Epoch 5: 100%|██████████| 2503/2503 [06:56<00:00,  6.00it/s, loss=1.400, acc=0.713, val_acc=0.794]
+Epoch 5: 100%|██████████| 2503/2503 [06:56<00:00,  6.00it/s, loss=1.220, acc=0.688, val_acc=0.794]
+Epoch 5: 100%|██████████| 2503/2503 [06:56<00:00,  6.00it/s, loss=1.220, acc=0.688, val_acc=0.794]
+Epoch 5:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.220, acc=0.688, val_acc=0.794]           
+Epoch 6:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.220, acc=0.688, val_acc=0.794]
+Epoch 6:   2%|▏         | 50/2503 [00:07<05:53,  6.94it/s, loss=1.220, acc=0.688, val_acc=0.794]
+Epoch 6:   2%|▏         | 50/2503 [00:07<05:53,  6.94it/s, loss=1.190, acc=0.740, val_acc=0.794]
+Epoch 6:   4%|▍         | 100/2503 [00:13<05:19,  7.51it/s, loss=1.190, acc=0.740, val_acc=0.794]
+Epoch 6:   4%|▍         | 100/2503 [00:13<05:19,  7.51it/s, loss=1.430, acc=0.672, val_acc=0.794]
+Epoch 6:   6%|▌         | 150/2503 [00:19<05:04,  7.72it/s, loss=1.430, acc=0.672, val_acc=0.794]
+Epoch 6:   6%|▌         | 150/2503 [00:19<05:04,  7.72it/s, loss=1.340, acc=0.709, val_acc=0.794]
+Epoch 6:   8%|▊         | 200/2503 [00:25<04:54,  7.83it/s, loss=1.340, acc=0.709, val_acc=0.794]
+Epoch 6:   8%|▊         | 200/2503 [00:25<04:54,  7.83it/s, loss=1.100, acc=0.736, val_acc=0.794]
+Epoch 6:  10%|▉         | 250/2503 [00:31<04:45,  7.90it/s, loss=1.100, acc=0.736, val_acc=0.794]
+Epoch 6:  10%|▉         | 250/2503 [00:31<04:45,  7.90it/s, loss=1.280, acc=0.711, val_acc=0.794]
+Epoch 6:  12%|█▏        | 300/2503 [00:37<04:37,  7.94it/s, loss=1.280, acc=0.711, val_acc=0.794]
+Epoch 6:  12%|█▏        | 300/2503 [00:37<04:37,  7.94it/s, loss=1.260, acc=0.721, val_acc=0.794]
+Epoch 6:  14%|█▍        | 350/2503 [00:43<04:30,  7.97it/s, loss=1.260, acc=0.721, val_acc=0.794]
+Epoch 6:  14%|█▍        | 350/2503 [00:43<04:30,  7.97it/s, loss=1.190, acc=0.736, val_acc=0.794]
+Epoch 6:  16%|█▌        | 400/2503 [00:50<04:23,  7.99it/s, loss=1.190, acc=0.736, val_acc=0.794]
+Epoch 6:  16%|█▌        | 400/2503 [00:50<04:23,  7.99it/s, loss=1.170, acc=0.746, val_acc=0.794]
+Epoch 6:  18%|█▊        | 450/2503 [00:56<04:16,  8.01it/s, loss=1.170, acc=0.746, val_acc=0.794]
+Epoch 6:  18%|█▊        | 450/2503 [00:56<04:16,  8.01it/s, loss=1.040, acc=0.764, val_acc=0.794]
+Epoch 6:  20%|█▉        | 500/2503 [01:02<04:09,  8.02it/s, loss=1.040, acc=0.764, val_acc=0.794]
+Epoch 6:  20%|█▉        | 500/2503 [01:02<04:09,  8.02it/s, loss=1.090, acc=0.754, val_acc=0.794]
+Epoch 6:  22%|██▏       | 550/2503 [01:08<04:02,  8.04it/s, loss=1.090, acc=0.754, val_acc=0.794]
+Epoch 6:  22%|██▏       | 550/2503 [01:08<04:02,  8.04it/s, loss=1.430, acc=0.676, val_acc=0.794]
+Epoch 6:  24%|██▍       | 600/2503 [01:14<03:56,  8.05it/s, loss=1.430, acc=0.676, val_acc=0.794]
+Epoch 6:  24%|██▍       | 600/2503 [01:14<03:56,  8.05it/s, loss=1.310, acc=0.682, val_acc=0.794]
+Epoch 6:  26%|██▌       | 650/2503 [01:20<03:50,  8.06it/s, loss=1.310, acc=0.682, val_acc=0.794]
+Epoch 6:  26%|██▌       | 650/2503 [01:20<03:50,  8.06it/s, loss=1.160, acc=0.719, val_acc=0.794]
+Epoch 6:  28%|██▊       | 700/2503 [01:26<03:43,  8.06it/s, loss=1.160, acc=0.719, val_acc=0.794]
+Epoch 6:  28%|██▊       | 700/2503 [01:26<03:43,  8.06it/s, loss=1.260, acc=0.699, val_acc=0.794]
+Epoch 6:  30%|██▉       | 750/2503 [01:32<03:37,  8.07it/s, loss=1.260, acc=0.699, val_acc=0.794]
+Epoch 6:  30%|██▉       | 750/2503 [01:32<03:37,  8.07it/s, loss=1.230, acc=0.715, val_acc=0.794]
+Epoch 6:  32%|███▏      | 800/2503 [01:39<03:30,  8.07it/s, loss=1.230, acc=0.715, val_acc=0.794]
+Epoch 6:  32%|███▏      | 800/2503 [01:39<03:30,  8.07it/s, loss=1.170, acc=0.727, val_acc=0.794]
+Epoch 6:  34%|███▍      | 850/2503 [01:45<03:24,  8.08it/s, loss=1.170, acc=0.727, val_acc=0.794]
+Epoch 6:  34%|███▍      | 850/2503 [01:45<03:24,  8.08it/s, loss=1.340, acc=0.713, val_acc=0.794]
+Epoch 6:  36%|███▌      | 900/2503 [01:51<03:18,  8.08it/s, loss=1.340, acc=0.713, val_acc=0.794]
+Epoch 6:  36%|███▌      | 900/2503 [01:51<03:18,  8.08it/s, loss=1.180, acc=0.719, val_acc=0.794]
+Epoch 6:  38%|███▊      | 950/2503 [01:57<03:12,  8.09it/s, loss=1.180, acc=0.719, val_acc=0.794]
+Epoch 6:  38%|███▊      | 950/2503 [01:57<03:12,  8.09it/s, loss=1.430, acc=0.660, val_acc=0.794]
+Epoch 6:  40%|███▉      | 1000/2503 [02:03<03:05,  8.09it/s, loss=1.430, acc=0.660, val_acc=0.794]
+Epoch 6:  40%|███▉      | 1000/2503 [02:03<03:05,  8.09it/s, loss=1.310, acc=0.715, val_acc=0.794]
+Epoch 6:  42%|████▏     | 1050/2503 [02:09<02:59,  8.09it/s, loss=1.310, acc=0.715, val_acc=0.794]
+Epoch 6:  42%|████▏     | 1050/2503 [02:09<02:59,  8.09it/s, loss=0.992, acc=0.773, val_acc=0.794]
+Epoch 6:  44%|████▍     | 1100/2503 [02:15<02:53,  8.10it/s, loss=0.992, acc=0.773, val_acc=0.794]
+Epoch 6:  44%|████▍     | 1100/2503 [02:15<02:53,  8.10it/s, loss=1.400, acc=0.691, val_acc=0.794]
+Epoch 6:  46%|████▌     | 1150/2503 [02:21<02:47,  8.10it/s, loss=1.400, acc=0.691, val_acc=0.794]
+Epoch 6:  46%|████▌     | 1150/2503 [02:21<02:47,  8.10it/s, loss=1.240, acc=0.707, val_acc=0.794]
+Epoch 6:  48%|████▊     | 1200/2503 [02:28<02:40,  8.10it/s, loss=1.240, acc=0.707, val_acc=0.794]
+Epoch 6:  48%|████▊     | 1200/2503 [02:28<02:40,  8.10it/s, loss=1.080, acc=0.764, val_acc=0.794]
+Epoch 6:  50%|████▉     | 1250/2503 [02:34<02:34,  8.10it/s, loss=1.080, acc=0.764, val_acc=0.794]
+Epoch 6:  50%|████▉     | 1250/2503 [02:34<02:34,  8.10it/s, loss=1.250, acc=0.707, val_acc=0.794]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:04,  9.78it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.47it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 6:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.250, acc=0.707, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.06it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 6
+
+Epoch 6:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.250, acc=0.707, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.06it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 6:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.250, acc=0.707, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.06it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8244
+
+Epoch 6:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.250, acc=0.707, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.06it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7933
+
+Epoch 6:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.250, acc=0.707, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.06it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9447
+
+Epoch 6:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.250, acc=0.707, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.06it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 6:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.250, acc=0.707, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.06it/s][A
+
+                                                                        [A
+Epoch 6:  50%|████▉     | 1250/2503 [02:46<02:46,  7.52it/s, loss=1.200, acc=0.709, val_acc=0.793]
+Epoch 6:  52%|█████▏    | 1300/2503 [02:52<02:39,  7.53it/s, loss=1.200, acc=0.709, val_acc=0.793]
+Epoch 6:  52%|█████▏    | 1300/2503 [02:52<02:39,  7.53it/s, loss=1.350, acc=0.693, val_acc=0.793]
+Epoch 6:  54%|█████▍    | 1350/2503 [02:58<02:32,  7.55it/s, loss=1.350, acc=0.693, val_acc=0.793]
+Epoch 6:  54%|█████▍    | 1350/2503 [02:58<02:32,  7.55it/s, loss=1.330, acc=0.691, val_acc=0.793]
+Epoch 6:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.57it/s, loss=1.330, acc=0.691, val_acc=0.793]
+Epoch 6:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.57it/s, loss=1.100, acc=0.744, val_acc=0.793]
+Epoch 6:  58%|█████▊    | 1450/2503 [03:11<02:18,  7.59it/s, loss=1.100, acc=0.744, val_acc=0.793]
+Epoch 6:  58%|█████▊    | 1450/2503 [03:11<02:18,  7.59it/s, loss=1.330, acc=0.680, val_acc=0.793]
+Epoch 6:  60%|█████▉    | 1500/2503 [03:17<02:11,  7.61it/s, loss=1.330, acc=0.680, val_acc=0.793]
+Epoch 6:  60%|█████▉    | 1500/2503 [03:17<02:11,  7.61it/s, loss=1.250, acc=0.709, val_acc=0.793]
+Epoch 6:  62%|██████▏   | 1550/2503 [03:23<02:05,  7.62it/s, loss=1.250, acc=0.709, val_acc=0.793]
+Epoch 6:  62%|██████▏   | 1550/2503 [03:23<02:05,  7.62it/s, loss=1.270, acc=0.666, val_acc=0.793]
+Epoch 6:  64%|██████▍   | 1600/2503 [03:29<01:58,  7.64it/s, loss=1.270, acc=0.666, val_acc=0.793]
+Epoch 6:  64%|██████▍   | 1600/2503 [03:29<01:58,  7.64it/s, loss=1.170, acc=0.732, val_acc=0.793]
+Epoch 6:  66%|██████▌   | 1650/2503 [03:35<01:51,  7.65it/s, loss=1.170, acc=0.732, val_acc=0.793]
+Epoch 6:  66%|██████▌   | 1650/2503 [03:35<01:51,  7.65it/s, loss=1.240, acc=0.717, val_acc=0.793]
+Epoch 6:  68%|██████▊   | 1700/2503 [03:42<01:44,  7.66it/s, loss=1.240, acc=0.717, val_acc=0.793]
+Epoch 6:  68%|██████▊   | 1700/2503 [03:42<01:44,  7.66it/s, loss=1.080, acc=0.715, val_acc=0.793]
+Epoch 6:  70%|██████▉   | 1750/2503 [03:48<01:38,  7.67it/s, loss=1.080, acc=0.715, val_acc=0.793]
+Epoch 6:  70%|██████▉   | 1750/2503 [03:48<01:38,  7.67it/s, loss=1.270, acc=0.721, val_acc=0.793]
+Epoch 6:  72%|███████▏  | 1800/2503 [03:54<01:31,  7.68it/s, loss=1.270, acc=0.721, val_acc=0.793]
+Epoch 6:  72%|███████▏  | 1800/2503 [03:54<01:31,  7.68it/s, loss=1.270, acc=0.691, val_acc=0.793]
+Epoch 6:  74%|███████▍  | 1850/2503 [04:00<01:24,  7.70it/s, loss=1.270, acc=0.691, val_acc=0.793]
+Epoch 6:  74%|███████▍  | 1850/2503 [04:00<01:24,  7.70it/s, loss=1.190, acc=0.699, val_acc=0.793]
+Epoch 6:  76%|███████▌  | 1900/2503 [04:06<01:18,  7.70it/s, loss=1.190, acc=0.699, val_acc=0.793]
+Epoch 6:  76%|███████▌  | 1900/2503 [04:06<01:18,  7.70it/s, loss=1.040, acc=0.758, val_acc=0.793]
+Epoch 6:  78%|███████▊  | 1950/2503 [04:12<01:11,  7.71it/s, loss=1.040, acc=0.758, val_acc=0.793]
+Epoch 6:  78%|███████▊  | 1950/2503 [04:12<01:11,  7.71it/s, loss=1.120, acc=0.742, val_acc=0.793]
+Epoch 6:  80%|███████▉  | 2000/2503 [04:18<01:05,  7.72it/s, loss=1.120, acc=0.742, val_acc=0.793]
+Epoch 6:  80%|███████▉  | 2000/2503 [04:18<01:05,  7.72it/s, loss=1.250, acc=0.705, val_acc=0.793]
+Epoch 6:  82%|████████▏ | 2050/2503 [04:25<00:58,  7.73it/s, loss=1.250, acc=0.705, val_acc=0.793]
+Epoch 6:  82%|████████▏ | 2050/2503 [04:25<00:58,  7.73it/s, loss=1.200, acc=0.744, val_acc=0.793]
+Epoch 6:  84%|████████▍ | 2100/2503 [04:31<00:52,  7.74it/s, loss=1.200, acc=0.744, val_acc=0.793]
+Epoch 6:  84%|████████▍ | 2100/2503 [04:31<00:52,  7.74it/s, loss=1.030, acc=0.750, val_acc=0.793]
+Epoch 6:  86%|████████▌ | 2150/2503 [04:37<00:45,  7.75it/s, loss=1.030, acc=0.750, val_acc=0.793]
+Epoch 6:  86%|████████▌ | 2150/2503 [04:37<00:45,  7.75it/s, loss=1.130, acc=0.721, val_acc=0.793]
+Epoch 6:  88%|████████▊ | 2200/2503 [04:43<00:39,  7.76it/s, loss=1.130, acc=0.721, val_acc=0.793]
+Epoch 6:  88%|████████▊ | 2200/2503 [04:43<00:39,  7.76it/s, loss=1.470, acc=0.680, val_acc=0.793]
+Epoch 6:  90%|████████▉ | 2250/2503 [04:49<00:32,  7.77it/s, loss=1.470, acc=0.680, val_acc=0.793]
+Epoch 6:  90%|████████▉ | 2250/2503 [04:49<00:32,  7.77it/s, loss=1.130, acc=0.744, val_acc=0.793]
+Epoch 6:  92%|█████████▏| 2300/2503 [04:55<00:26,  7.78it/s, loss=1.130, acc=0.744, val_acc=0.793]
+Epoch 6:  92%|█████████▏| 2300/2503 [04:55<00:26,  7.78it/s, loss=1.250, acc=0.697, val_acc=0.793]
+Epoch 6:  94%|█████████▍| 2350/2503 [05:01<00:19,  7.78it/s, loss=1.250, acc=0.697, val_acc=0.793]
+Epoch 6:  94%|█████████▍| 2350/2503 [05:01<00:19,  7.78it/s, loss=1.210, acc=0.717, val_acc=0.793]
+Epoch 6:  96%|█████████▌| 2400/2503 [05:08<00:13,  7.79it/s, loss=1.210, acc=0.717, val_acc=0.793]
+Epoch 6:  96%|█████████▌| 2400/2503 [05:08<00:13,  7.79it/s, loss=1.180, acc=0.734, val_acc=0.793]
+Epoch 6:  98%|█████████▊| 2450/2503 [05:14<00:06,  7.80it/s, loss=1.180, acc=0.734, val_acc=0.793]
+Epoch 6:  98%|█████████▊| 2450/2503 [05:14<00:06,  7.80it/s, loss=1.200, acc=0.711, val_acc=0.793]
+Epoch 6: 100%|█████████▉| 2500/2503 [05:20<00:00,  7.81it/s, loss=1.200, acc=0.711, val_acc=0.793]
+Epoch 6: 100%|█████████▉| 2500/2503 [05:20<00:00,  7.81it/s, loss=1.250, acc=0.719, val_acc=0.793]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:04,  9.79it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.50it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 6: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.52it/s, loss=1.250, acc=0.719, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.11it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 6
+
+Epoch 6: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.52it/s, loss=1.250, acc=0.719, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.11it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 6: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.52it/s, loss=1.250, acc=0.719, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.11it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8249
+
+Epoch 6: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.52it/s, loss=1.250, acc=0.719, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.11it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7947
+
+Epoch 6: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.52it/s, loss=1.250, acc=0.719, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.10it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9451
+
+Epoch 6: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.52it/s, loss=1.250, acc=0.719, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.10it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 6: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.52it/s, loss=1.250, acc=0.719, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.10it/s][A
+
+                                                                        [A
+Epoch 6: 100%|█████████▉| 2500/2503 [05:32<00:00,  7.52it/s, loss=1.280, acc=0.707, val_acc=0.794]
+Epoch 6: 100%|██████████| 2503/2503 [05:32<00:00,  7.52it/s, loss=1.280, acc=0.707, val_acc=0.794]
+Epoch 6: 100%|██████████| 2503/2503 [05:32<00:00,  7.52it/s, loss=1.510, acc=0.708, val_acc=0.794]
+Epoch 6: 100%|██████████| 2503/2503 [05:32<00:00,  7.52it/s, loss=1.510, acc=0.708, val_acc=0.794]
+Epoch 6:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.510, acc=0.708, val_acc=0.794]           
+Epoch 7:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.510, acc=0.708, val_acc=0.794]
+Epoch 7:   2%|▏         | 50/2503 [00:07<05:54,  6.92it/s, loss=1.510, acc=0.708, val_acc=0.794]
+Epoch 7:   2%|▏         | 50/2503 [00:07<05:54,  6.92it/s, loss=1.080, acc=0.727, val_acc=0.794]
+Epoch 7:   4%|▍         | 100/2503 [00:13<05:20,  7.49it/s, loss=1.080, acc=0.727, val_acc=0.794]
+Epoch 7:   4%|▍         | 100/2503 [00:13<05:20,  7.49it/s, loss=1.390, acc=0.682, val_acc=0.794]
+Epoch 7:   6%|▌         | 150/2503 [00:19<05:05,  7.70it/s, loss=1.390, acc=0.682, val_acc=0.794]
+Epoch 7:   6%|▌         | 150/2503 [00:19<05:05,  7.70it/s, loss=1.160, acc=0.730, val_acc=0.794]
+Epoch 7:   8%|▊         | 200/2503 [00:25<04:54,  7.81it/s, loss=1.160, acc=0.730, val_acc=0.794]
+Epoch 7:   8%|▊         | 200/2503 [00:25<04:54,  7.81it/s, loss=1.290, acc=0.719, val_acc=0.794]
+Epoch 7:  10%|▉         | 250/2503 [00:31<04:45,  7.88it/s, loss=1.290, acc=0.719, val_acc=0.794]
+Epoch 7:  10%|▉         | 250/2503 [00:31<04:45,  7.88it/s, loss=1.130, acc=0.754, val_acc=0.794]
+Epoch 7:  12%|█▏        | 300/2503 [00:37<04:37,  7.93it/s, loss=1.130, acc=0.754, val_acc=0.794]
+Epoch 7:  12%|█▏        | 300/2503 [00:37<04:37,  7.93it/s, loss=1.040, acc=0.754, val_acc=0.794]
+Epoch 7:  14%|█▍        | 350/2503 [00:43<04:30,  7.96it/s, loss=1.040, acc=0.754, val_acc=0.794]
+Epoch 7:  14%|█▍        | 350/2503 [00:43<04:30,  7.96it/s, loss=1.080, acc=0.762, val_acc=0.794]
+Epoch 7:  16%|█▌        | 400/2503 [00:50<04:23,  7.99it/s, loss=1.080, acc=0.762, val_acc=0.794]
+Epoch 7:  16%|█▌        | 400/2503 [00:50<04:23,  7.99it/s, loss=1.240, acc=0.723, val_acc=0.794]
+Epoch 7:  18%|█▊        | 450/2503 [00:56<04:16,  8.01it/s, loss=1.240, acc=0.723, val_acc=0.794]
+Epoch 7:  18%|█▊        | 450/2503 [00:56<04:16,  8.01it/s, loss=1.200, acc=0.727, val_acc=0.794]
+Epoch 7:  20%|█▉        | 500/2503 [01:02<04:09,  8.02it/s, loss=1.200, acc=0.727, val_acc=0.794]
+Epoch 7:  20%|█▉        | 500/2503 [01:02<04:09,  8.02it/s, loss=1.180, acc=0.727, val_acc=0.794]
+Epoch 7:  22%|██▏       | 550/2503 [01:08<04:02,  8.04it/s, loss=1.180, acc=0.727, val_acc=0.794]
+Epoch 7:  22%|██▏       | 550/2503 [01:08<04:02,  8.04it/s, loss=1.190, acc=0.729, val_acc=0.794]
+Epoch 7:  24%|██▍       | 600/2503 [01:14<03:56,  8.05it/s, loss=1.190, acc=0.729, val_acc=0.794]
+Epoch 7:  24%|██▍       | 600/2503 [01:14<03:56,  8.05it/s, loss=1.110, acc=0.740, val_acc=0.794]
+Epoch 7:  26%|██▌       | 650/2503 [01:20<03:50,  8.06it/s, loss=1.110, acc=0.740, val_acc=0.794]
+Epoch 7:  26%|██▌       | 650/2503 [01:20<03:50,  8.06it/s, loss=1.230, acc=0.734, val_acc=0.794]
+Epoch 7:  28%|██▊       | 700/2503 [01:26<03:43,  8.06it/s, loss=1.230, acc=0.734, val_acc=0.794]
+Epoch 7:  28%|██▊       | 700/2503 [01:26<03:43,  8.06it/s, loss=1.060, acc=0.754, val_acc=0.794]
+Epoch 7:  30%|██▉       | 750/2503 [01:32<03:37,  8.07it/s, loss=1.060, acc=0.754, val_acc=0.794]
+Epoch 7:  30%|██▉       | 750/2503 [01:32<03:37,  8.07it/s, loss=1.430, acc=0.678, val_acc=0.794]
+Epoch 7:  32%|███▏      | 800/2503 [01:39<03:30,  8.08it/s, loss=1.430, acc=0.678, val_acc=0.794]
+Epoch 7:  32%|███▏      | 800/2503 [01:39<03:30,  8.08it/s, loss=1.070, acc=0.740, val_acc=0.794]
+Epoch 7:  34%|███▍      | 850/2503 [01:45<03:24,  8.08it/s, loss=1.070, acc=0.740, val_acc=0.794]
+Epoch 7:  34%|███▍      | 850/2503 [01:45<03:24,  8.08it/s, loss=1.190, acc=0.721, val_acc=0.794]
+Epoch 7:  36%|███▌      | 900/2503 [01:51<03:18,  8.08it/s, loss=1.190, acc=0.721, val_acc=0.794]
+Epoch 7:  36%|███▌      | 900/2503 [01:51<03:18,  8.08it/s, loss=1.170, acc=0.729, val_acc=0.794]
+Epoch 7:  38%|███▊      | 950/2503 [01:57<03:12,  8.09it/s, loss=1.170, acc=0.729, val_acc=0.794]
+Epoch 7:  38%|███▊      | 950/2503 [01:57<03:12,  8.09it/s, loss=1.150, acc=0.711, val_acc=0.794]
+Epoch 7:  40%|███▉      | 1000/2503 [02:03<03:05,  8.09it/s, loss=1.150, acc=0.711, val_acc=0.794]
+Epoch 7:  40%|███▉      | 1000/2503 [02:03<03:05,  8.09it/s, loss=1.260, acc=0.709, val_acc=0.794]
+Epoch 7:  42%|████▏     | 1050/2503 [02:09<02:59,  8.10it/s, loss=1.260, acc=0.709, val_acc=0.794]
+Epoch 7:  42%|████▏     | 1050/2503 [02:09<02:59,  8.10it/s, loss=1.210, acc=0.721, val_acc=0.794]
+Epoch 7:  44%|████▍     | 1100/2503 [02:15<02:53,  8.10it/s, loss=1.210, acc=0.721, val_acc=0.794]
+Epoch 7:  44%|████▍     | 1100/2503 [02:15<02:53,  8.10it/s, loss=1.290, acc=0.682, val_acc=0.794]
+Epoch 7:  46%|████▌     | 1150/2503 [02:21<02:47,  8.10it/s, loss=1.290, acc=0.682, val_acc=0.794]
+Epoch 7:  46%|████▌     | 1150/2503 [02:21<02:47,  8.10it/s, loss=1.170, acc=0.719, val_acc=0.794]
+Epoch 7:  48%|████▊     | 1200/2503 [02:28<02:40,  8.10it/s, loss=1.170, acc=0.719, val_acc=0.794]
+Epoch 7:  48%|████▊     | 1200/2503 [02:28<02:40,  8.10it/s, loss=1.350, acc=0.689, val_acc=0.794]
+Epoch 7:  50%|████▉     | 1250/2503 [02:34<02:34,  8.11it/s, loss=1.350, acc=0.689, val_acc=0.794]
+Epoch 7:  50%|████▉     | 1250/2503 [02:34<02:34,  8.11it/s, loss=1.280, acc=0.701, val_acc=0.794]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:04,  9.76it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.48it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 7:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.280, acc=0.701, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.10it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 7
+
+Epoch 7:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.280, acc=0.701, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.10it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 7:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.280, acc=0.701, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.10it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8229
+
+Epoch 7:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.280, acc=0.701, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.10it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7926
+
+Epoch 7:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.280, acc=0.701, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.10it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9451
+
+Epoch 7:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.280, acc=0.701, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.10it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 7:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.280, acc=0.701, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.10it/s][A
+
+                                                                        [A
+Epoch 7:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.050, acc=0.752, val_acc=0.793]
+Epoch 7:  52%|█████▏    | 1300/2503 [02:52<02:39,  7.54it/s, loss=1.050, acc=0.752, val_acc=0.793]
+Epoch 7:  52%|█████▏    | 1300/2503 [02:52<02:39,  7.53it/s, loss=1.280, acc=0.717, val_acc=0.793]
+Epoch 7:  54%|█████▍    | 1350/2503 [02:58<02:32,  7.56it/s, loss=1.280, acc=0.717, val_acc=0.793]
+Epoch 7:  54%|█████▍    | 1350/2503 [02:58<02:32,  7.56it/s, loss=1.140, acc=0.738, val_acc=0.793]
+Epoch 7:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.58it/s, loss=1.140, acc=0.738, val_acc=0.793]
+Epoch 7:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.58it/s, loss=1.150, acc=0.746, val_acc=0.793]
+Epoch 7:  58%|█████▊    | 1450/2503 [03:10<02:18,  7.60it/s, loss=1.150, acc=0.746, val_acc=0.793]
+Epoch 7:  58%|█████▊    | 1450/2503 [03:10<02:18,  7.59it/s, loss=1.240, acc=0.709, val_acc=0.793]
+Epoch 7:  60%|█████▉    | 1500/2503 [03:17<02:11,  7.61it/s, loss=1.240, acc=0.709, val_acc=0.793]
+Epoch 7:  60%|█████▉    | 1500/2503 [03:17<02:11,  7.61it/s, loss=1.260, acc=0.701, val_acc=0.793]
+Epoch 7:  62%|██████▏   | 1550/2503 [03:23<02:04,  7.63it/s, loss=1.260, acc=0.701, val_acc=0.793]
+Epoch 7:  62%|██████▏   | 1550/2503 [03:23<02:04,  7.63it/s, loss=1.090, acc=0.756, val_acc=0.793]
+Epoch 7:  64%|██████▍   | 1600/2503 [03:29<01:58,  7.64it/s, loss=1.090, acc=0.756, val_acc=0.793]
+Epoch 7:  64%|██████▍   | 1600/2503 [03:29<01:58,  7.64it/s, loss=1.200, acc=0.746, val_acc=0.793]
+Epoch 7:  66%|██████▌   | 1650/2503 [03:35<01:51,  7.66it/s, loss=1.200, acc=0.746, val_acc=0.793]
+Epoch 7:  66%|██████▌   | 1650/2503 [03:35<01:51,  7.66it/s, loss=1.330, acc=0.691, val_acc=0.793]
+Epoch 7:  68%|██████▊   | 1700/2503 [03:41<01:44,  7.67it/s, loss=1.330, acc=0.691, val_acc=0.793]
+Epoch 7:  68%|██████▊   | 1700/2503 [03:41<01:44,  7.67it/s, loss=1.340, acc=0.707, val_acc=0.793]
+Epoch 7:  70%|██████▉   | 1750/2503 [03:47<01:37,  7.69it/s, loss=1.340, acc=0.707, val_acc=0.793]
+Epoch 7:  70%|██████▉   | 1750/2503 [03:47<01:37,  7.69it/s, loss=1.140, acc=0.732, val_acc=0.793]
+Epoch 7:  72%|███████▏  | 1800/2503 [03:53<01:31,  7.70it/s, loss=1.140, acc=0.732, val_acc=0.793]
+Epoch 7:  72%|███████▏  | 1800/2503 [03:53<01:31,  7.70it/s, loss=1.080, acc=0.758, val_acc=0.793]
+Epoch 7:  74%|███████▍  | 1850/2503 [03:59<01:24,  7.71it/s, loss=1.080, acc=0.758, val_acc=0.793]
+Epoch 7:  74%|███████▍  | 1850/2503 [03:59<01:24,  7.71it/s, loss=1.150, acc=0.723, val_acc=0.793]
+Epoch 7:  76%|███████▌  | 1900/2503 [04:06<01:18,  7.72it/s, loss=1.150, acc=0.723, val_acc=0.793]
+Epoch 7:  76%|███████▌  | 1900/2503 [04:06<01:18,  7.72it/s, loss=1.170, acc=0.705, val_acc=0.793]
+Epoch 7:  78%|███████▊  | 1950/2503 [04:12<01:11,  7.73it/s, loss=1.170, acc=0.705, val_acc=0.793]
+Epoch 7:  78%|███████▊  | 1950/2503 [04:12<01:11,  7.73it/s, loss=1.300, acc=0.689, val_acc=0.793]
+Epoch 7:  80%|███████▉  | 2000/2503 [04:18<01:04,  7.74it/s, loss=1.300, acc=0.689, val_acc=0.793]
+Epoch 7:  80%|███████▉  | 2000/2503 [04:18<01:04,  7.74it/s, loss=1.320, acc=0.703, val_acc=0.793]
+Epoch 7:  82%|████████▏ | 2050/2503 [04:24<00:58,  7.75it/s, loss=1.320, acc=0.703, val_acc=0.793]
+Epoch 7:  82%|████████▏ | 2050/2503 [04:24<00:58,  7.75it/s, loss=1.250, acc=0.705, val_acc=0.793]
+Epoch 7:  84%|████████▍ | 2100/2503 [04:30<00:51,  7.76it/s, loss=1.250, acc=0.705, val_acc=0.793]
+Epoch 7:  84%|████████▍ | 2100/2503 [04:30<00:51,  7.76it/s, loss=1.190, acc=0.730, val_acc=0.793]
+Epoch 7:  86%|████████▌ | 2150/2503 [04:36<00:45,  7.77it/s, loss=1.190, acc=0.730, val_acc=0.793]
+Epoch 7:  86%|████████▌ | 2150/2503 [04:36<00:45,  7.77it/s, loss=1.230, acc=0.734, val_acc=0.793]
+Epoch 7:  88%|████████▊ | 2200/2503 [04:42<00:38,  7.78it/s, loss=1.230, acc=0.734, val_acc=0.793]
+Epoch 7:  88%|████████▊ | 2200/2503 [04:42<00:38,  7.78it/s, loss=1.180, acc=0.727, val_acc=0.793]
+Epoch 7:  90%|████████▉ | 2250/2503 [04:48<00:32,  7.79it/s, loss=1.180, acc=0.727, val_acc=0.793]
+Epoch 7:  90%|████████▉ | 2250/2503 [04:48<00:32,  7.79it/s, loss=1.400, acc=0.672, val_acc=0.793]
+Epoch 7:  92%|█████████▏| 2300/2503 [04:55<00:26,  7.79it/s, loss=1.400, acc=0.672, val_acc=0.793]
+Epoch 7:  92%|█████████▏| 2300/2503 [04:55<00:26,  7.79it/s, loss=1.130, acc=0.727, val_acc=0.793]
+Epoch 7:  94%|█████████▍| 2350/2503 [05:01<00:19,  7.80it/s, loss=1.130, acc=0.727, val_acc=0.793]
+Epoch 7:  94%|█████████▍| 2350/2503 [05:01<00:19,  7.80it/s, loss=1.040, acc=0.748, val_acc=0.793]
+Epoch 7:  96%|█████████▌| 2400/2503 [05:07<00:13,  7.81it/s, loss=1.040, acc=0.748, val_acc=0.793]
+Epoch 7:  96%|█████████▌| 2400/2503 [05:07<00:13,  7.81it/s, loss=1.370, acc=0.670, val_acc=0.793]
+Epoch 7:  98%|█████████▊| 2450/2503 [05:13<00:06,  7.82it/s, loss=1.370, acc=0.670, val_acc=0.793]
+Epoch 7:  98%|█████████▊| 2450/2503 [05:13<00:06,  7.82it/s, loss=1.180, acc=0.734, val_acc=0.793]
+Epoch 7: 100%|█████████▉| 2500/2503 [05:19<00:00,  7.82it/s, loss=1.180, acc=0.734, val_acc=0.793]
+Epoch 7: 100%|█████████▉| 2500/2503 [05:19<00:00,  7.82it/s, loss=1.150, acc=0.699, val_acc=0.793]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:04,  9.81it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.51it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 7: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.150, acc=0.699, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 7
+
+Epoch 7: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.150, acc=0.699, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 7: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.150, acc=0.699, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8209
+
+Epoch 7: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.150, acc=0.699, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7953
+
+Epoch 7: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.150, acc=0.699, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9433
+
+Epoch 7: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.150, acc=0.699, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 7: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.150, acc=0.699, val_acc=0.793]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+
+                                                                        [A
+Epoch 7: 100%|█████████▉| 2500/2503 [05:31<00:00,  7.54it/s, loss=1.270, acc=0.691, val_acc=0.794]
+Epoch 7: 100%|██████████| 2503/2503 [05:31<00:00,  7.54it/s, loss=1.270, acc=0.691, val_acc=0.794]
+Epoch 7: 100%|██████████| 2503/2503 [05:31<00:00,  7.54it/s, loss=1.450, acc=0.722, val_acc=0.794]
+Epoch 7: 100%|██████████| 2503/2503 [05:31<00:00,  7.54it/s, loss=1.450, acc=0.722, val_acc=0.794]
+Epoch 7:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.450, acc=0.722, val_acc=0.794]           
+Epoch 8:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.450, acc=0.722, val_acc=0.794]
+Epoch 8:   2%|▏         | 50/2503 [00:07<05:51,  6.97it/s, loss=1.450, acc=0.722, val_acc=0.794]
+Epoch 8:   2%|▏         | 50/2503 [00:07<05:51,  6.97it/s, loss=1.190, acc=0.723, val_acc=0.794]
+Epoch 8:   4%|▍         | 100/2503 [00:13<05:19,  7.52it/s, loss=1.190, acc=0.723, val_acc=0.794]
+Epoch 8:   4%|▍         | 100/2503 [00:13<05:19,  7.52it/s, loss=1.270, acc=0.705, val_acc=0.794]
+Epoch 8:   6%|▌         | 150/2503 [00:19<05:04,  7.72it/s, loss=1.270, acc=0.705, val_acc=0.794]
+Epoch 8:   6%|▌         | 150/2503 [00:19<05:04,  7.72it/s, loss=1.320, acc=0.703, val_acc=0.794]
+Epoch 8:   8%|▊         | 200/2503 [00:25<04:54,  7.83it/s, loss=1.320, acc=0.703, val_acc=0.794]
+Epoch 8:   8%|▊         | 200/2503 [00:25<04:54,  7.83it/s, loss=1.240, acc=0.729, val_acc=0.794]
+Epoch 8:  10%|▉         | 250/2503 [00:31<04:45,  7.89it/s, loss=1.240, acc=0.729, val_acc=0.794]
+Epoch 8:  10%|▉         | 250/2503 [00:31<04:45,  7.89it/s, loss=1.150, acc=0.723, val_acc=0.794]
+Epoch 8:  12%|█▏        | 300/2503 [00:37<04:37,  7.94it/s, loss=1.150, acc=0.723, val_acc=0.794]
+Epoch 8:  12%|█▏        | 300/2503 [00:37<04:37,  7.94it/s, loss=1.250, acc=0.711, val_acc=0.794]
+Epoch 8:  14%|█▍        | 350/2503 [00:43<04:30,  7.97it/s, loss=1.250, acc=0.711, val_acc=0.794]
+Epoch 8:  14%|█▍        | 350/2503 [00:43<04:30,  7.97it/s, loss=1.370, acc=0.695, val_acc=0.794]
+Epoch 8:  16%|█▌        | 400/2503 [00:50<04:22,  8.00it/s, loss=1.370, acc=0.695, val_acc=0.794]
+Epoch 8:  16%|█▌        | 400/2503 [00:50<04:22,  8.00it/s, loss=1.260, acc=0.703, val_acc=0.794]
+Epoch 8:  18%|█▊        | 450/2503 [00:56<04:16,  8.02it/s, loss=1.260, acc=0.703, val_acc=0.794]
+Epoch 8:  18%|█▊        | 450/2503 [00:56<04:16,  8.02it/s, loss=1.390, acc=0.697, val_acc=0.794]
+Epoch 8:  20%|█▉        | 500/2503 [01:02<04:09,  8.03it/s, loss=1.390, acc=0.697, val_acc=0.794]
+Epoch 8:  20%|█▉        | 500/2503 [01:02<04:09,  8.03it/s, loss=1.210, acc=0.711, val_acc=0.794]
+Epoch 8:  22%|██▏       | 550/2503 [01:08<04:02,  8.04it/s, loss=1.210, acc=0.711, val_acc=0.794]
+Epoch 8:  22%|██▏       | 550/2503 [01:08<04:02,  8.04it/s, loss=1.190, acc=0.717, val_acc=0.794]
+Epoch 8:  24%|██▍       | 600/2503 [01:14<03:56,  8.05it/s, loss=1.190, acc=0.717, val_acc=0.794]
+Epoch 8:  24%|██▍       | 600/2503 [01:14<03:56,  8.05it/s, loss=1.420, acc=0.680, val_acc=0.794]
+Epoch 8:  26%|██▌       | 650/2503 [01:20<03:49,  8.06it/s, loss=1.420, acc=0.680, val_acc=0.794]
+Epoch 8:  26%|██▌       | 650/2503 [01:20<03:49,  8.06it/s, loss=1.220, acc=0.701, val_acc=0.794]
+Epoch 8:  28%|██▊       | 700/2503 [01:26<03:43,  8.07it/s, loss=1.220, acc=0.701, val_acc=0.794]
+Epoch 8:  28%|██▊       | 700/2503 [01:26<03:43,  8.07it/s, loss=1.120, acc=0.744, val_acc=0.794]
+Epoch 8:  30%|██▉       | 750/2503 [01:32<03:37,  8.08it/s, loss=1.120, acc=0.744, val_acc=0.794]
+Epoch 8:  30%|██▉       | 750/2503 [01:32<03:37,  8.08it/s, loss=1.220, acc=0.701, val_acc=0.794]
+Epoch 8:  32%|███▏      | 800/2503 [01:39<03:30,  8.08it/s, loss=1.220, acc=0.701, val_acc=0.794]
+Epoch 8:  32%|███▏      | 800/2503 [01:39<03:30,  8.08it/s, loss=1.250, acc=0.695, val_acc=0.794]
+Epoch 8:  34%|███▍      | 850/2503 [01:45<03:24,  8.09it/s, loss=1.250, acc=0.695, val_acc=0.794]
+Epoch 8:  34%|███▍      | 850/2503 [01:45<03:24,  8.09it/s, loss=1.280, acc=0.719, val_acc=0.794]
+Epoch 8:  36%|███▌      | 900/2503 [01:51<03:18,  8.09it/s, loss=1.280, acc=0.719, val_acc=0.794]
+Epoch 8:  36%|███▌      | 900/2503 [01:51<03:18,  8.09it/s, loss=1.360, acc=0.713, val_acc=0.794]
+Epoch 8:  38%|███▊      | 950/2503 [01:57<03:11,  8.09it/s, loss=1.360, acc=0.713, val_acc=0.794]
+Epoch 8:  38%|███▊      | 950/2503 [01:57<03:11,  8.09it/s, loss=1.390, acc=0.678, val_acc=0.794]
+Epoch 8:  40%|███▉      | 1000/2503 [02:03<03:05,  8.10it/s, loss=1.390, acc=0.678, val_acc=0.794]
+Epoch 8:  40%|███▉      | 1000/2503 [02:03<03:05,  8.10it/s, loss=1.120, acc=0.738, val_acc=0.794]
+Epoch 8:  42%|████▏     | 1050/2503 [02:09<02:59,  8.10it/s, loss=1.120, acc=0.738, val_acc=0.794]
+Epoch 8:  42%|████▏     | 1050/2503 [02:09<02:59,  8.10it/s, loss=1.180, acc=0.730, val_acc=0.794]
+Epoch 8:  44%|████▍     | 1100/2503 [02:15<02:53,  8.10it/s, loss=1.180, acc=0.730, val_acc=0.794]
+Epoch 8:  44%|████▍     | 1100/2503 [02:15<02:53,  8.10it/s, loss=1.300, acc=0.701, val_acc=0.794]
+Epoch 8:  46%|████▌     | 1150/2503 [02:21<02:46,  8.11it/s, loss=1.300, acc=0.701, val_acc=0.794]
+Epoch 8:  46%|████▌     | 1150/2503 [02:21<02:46,  8.11it/s, loss=1.210, acc=0.740, val_acc=0.794]
+Epoch 8:  48%|████▊     | 1200/2503 [02:28<02:40,  8.11it/s, loss=1.210, acc=0.740, val_acc=0.794]
+Epoch 8:  48%|████▊     | 1200/2503 [02:28<02:40,  8.11it/s, loss=1.270, acc=0.703, val_acc=0.794]
+Epoch 8:  50%|████▉     | 1250/2503 [02:34<02:34,  8.11it/s, loss=1.270, acc=0.703, val_acc=0.794]
+Epoch 8:  50%|████▉     | 1250/2503 [02:34<02:34,  8.11it/s, loss=1.290, acc=0.691, val_acc=0.794]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:04,  9.78it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.49it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 8:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.290, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.23it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 8
+
+Epoch 8:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.290, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.23it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 8:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.290, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.23it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8226
+
+Epoch 8:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.290, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.23it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7938
+
+Epoch 8:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.290, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.23it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9441
+
+Epoch 8:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.290, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.23it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 8:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.290, acc=0.691, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.23it/s][A
+
+                                                                        [A
+Epoch 8:  50%|████▉     | 1250/2503 [02:46<02:46,  7.53it/s, loss=1.200, acc=0.719, val_acc=0.794]
+Epoch 8:  52%|█████▏    | 1300/2503 [02:52<02:39,  7.54it/s, loss=1.200, acc=0.719, val_acc=0.794]
+Epoch 8:  52%|█████▏    | 1300/2503 [02:52<02:39,  7.54it/s, loss=1.250, acc=0.721, val_acc=0.794]
+Epoch 8:  54%|█████▍    | 1350/2503 [02:58<02:32,  7.56it/s, loss=1.250, acc=0.721, val_acc=0.794]
+Epoch 8:  54%|█████▍    | 1350/2503 [02:58<02:32,  7.56it/s, loss=1.310, acc=0.691, val_acc=0.794]
+Epoch 8:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.57it/s, loss=1.310, acc=0.691, val_acc=0.794]
+Epoch 8:  56%|█████▌    | 1400/2503 [03:04<02:25,  7.57it/s, loss=1.170, acc=0.721, val_acc=0.794]
+Epoch 8:  58%|█████▊    | 1450/2503 [03:11<02:18,  7.59it/s, loss=1.170, acc=0.721, val_acc=0.794]
+Epoch 8:  58%|█████▊    | 1450/2503 [03:11<02:18,  7.59it/s, loss=1.220, acc=0.703, val_acc=0.794]
+Epoch 8:  60%|█████▉    | 1500/2503 [03:17<02:11,  7.61it/s, loss=1.220, acc=0.703, val_acc=0.794]
+Epoch 8:  60%|█████▉    | 1500/2503 [03:17<02:11,  7.61it/s, loss=1.180, acc=0.709, val_acc=0.794]
+Epoch 8:  62%|██████▏   | 1550/2503 [03:23<02:04,  7.63it/s, loss=1.180, acc=0.709, val_acc=0.794]
+Epoch 8:  62%|██████▏   | 1550/2503 [03:23<02:04,  7.63it/s, loss=1.060, acc=0.758, val_acc=0.794]
+Epoch 8:  64%|██████▍   | 1600/2503 [03:29<01:58,  7.64it/s, loss=1.060, acc=0.758, val_acc=0.794]
+Epoch 8:  64%|██████▍   | 1600/2503 [03:29<01:58,  7.64it/s, loss=1.220, acc=0.736, val_acc=0.794]
+Epoch 8:  66%|██████▌   | 1650/2503 [03:35<01:51,  7.66it/s, loss=1.220, acc=0.736, val_acc=0.794]
+Epoch 8:  66%|██████▌   | 1650/2503 [03:35<01:51,  7.66it/s, loss=1.110, acc=0.732, val_acc=0.794]
+Epoch 8:  68%|██████▊   | 1700/2503 [03:41<01:44,  7.67it/s, loss=1.110, acc=0.732, val_acc=0.794]
+Epoch 8:  68%|██████▊   | 1700/2503 [03:41<01:44,  7.67it/s, loss=1.120, acc=0.754, val_acc=0.794]
+Epoch 8:  70%|██████▉   | 1750/2503 [03:47<01:37,  7.68it/s, loss=1.120, acc=0.754, val_acc=0.794]
+Epoch 8:  70%|██████▉   | 1750/2503 [03:47<01:37,  7.68it/s, loss=1.220, acc=0.703, val_acc=0.794]
+Epoch 8:  72%|███████▏  | 1800/2503 [03:53<01:31,  7.70it/s, loss=1.220, acc=0.703, val_acc=0.794]
+Epoch 8:  72%|███████▏  | 1800/2503 [03:53<01:31,  7.70it/s, loss=1.400, acc=0.701, val_acc=0.794]
+Epoch 8:  74%|███████▍  | 1850/2503 [04:00<01:24,  7.71it/s, loss=1.400, acc=0.701, val_acc=0.794]
+Epoch 8:  74%|███████▍  | 1850/2503 [04:00<01:24,  7.71it/s, loss=1.140, acc=0.723, val_acc=0.794]
+Epoch 8:  76%|███████▌  | 1900/2503 [04:06<01:18,  7.71it/s, loss=1.140, acc=0.723, val_acc=0.794]
+Epoch 8:  76%|███████▌  | 1900/2503 [04:06<01:18,  7.71it/s, loss=1.190, acc=0.721, val_acc=0.794]
+Epoch 8:  78%|███████▊  | 1950/2503 [04:12<01:11,  7.72it/s, loss=1.190, acc=0.721, val_acc=0.794]
+Epoch 8:  78%|███████▊  | 1950/2503 [04:12<01:11,  7.72it/s, loss=1.150, acc=0.740, val_acc=0.794]
+Epoch 8:  80%|███████▉  | 2000/2503 [04:18<01:05,  7.73it/s, loss=1.150, acc=0.740, val_acc=0.794]
+Epoch 8:  80%|███████▉  | 2000/2503 [04:18<01:05,  7.73it/s, loss=1.300, acc=0.693, val_acc=0.794]
+Epoch 8:  82%|████████▏ | 2050/2503 [04:24<00:58,  7.74it/s, loss=1.300, acc=0.693, val_acc=0.794]
+Epoch 8:  82%|████████▏ | 2050/2503 [04:24<00:58,  7.74it/s, loss=1.220, acc=0.717, val_acc=0.794]
+Epoch 8:  84%|████████▍ | 2100/2503 [04:33<00:52,  7.68it/s, loss=1.220, acc=0.717, val_acc=0.794]
+Epoch 8:  84%|████████▍ | 2100/2503 [04:33<00:52,  7.68it/s, loss=1.110, acc=0.734, val_acc=0.794]
+Epoch 8:  86%|████████▌ | 2150/2503 [04:42<00:46,  7.60it/s, loss=1.110, acc=0.734, val_acc=0.794]
+Epoch 8:  86%|████████▌ | 2150/2503 [04:42<00:46,  7.60it/s, loss=1.190, acc=0.742, val_acc=0.794]
+Epoch 8:  88%|████████▊ | 2200/2503 [04:53<00:40,  7.50it/s, loss=1.190, acc=0.742, val_acc=0.794]
+Epoch 8:  88%|████████▊ | 2200/2503 [04:53<00:40,  7.50it/s, loss=1.250, acc=0.717, val_acc=0.794]
+Epoch 8:  90%|████████▉ | 2250/2503 [05:05<00:34,  7.36it/s, loss=1.250, acc=0.717, val_acc=0.794]
+Epoch 8:  90%|████████▉ | 2250/2503 [05:05<00:34,  7.36it/s, loss=1.210, acc=0.734, val_acc=0.794]
+Epoch 8:  92%|█████████▏| 2300/2503 [05:21<00:28,  7.15it/s, loss=1.210, acc=0.734, val_acc=0.794]
+Epoch 8:  92%|█████████▏| 2300/2503 [05:21<00:28,  7.15it/s, loss=1.220, acc=0.717, val_acc=0.794]
+Epoch 8:  94%|█████████▍| 2350/2503 [05:38<00:22,  6.94it/s, loss=1.220, acc=0.717, val_acc=0.794]
+Epoch 8:  94%|█████████▍| 2350/2503 [05:38<00:22,  6.94it/s, loss=1.250, acc=0.688, val_acc=0.794]
+Epoch 8:  96%|█████████▌| 2400/2503 [05:58<00:15,  6.70it/s, loss=1.250, acc=0.688, val_acc=0.794]
+Epoch 8:  96%|█████████▌| 2400/2503 [05:58<00:15,  6.70it/s, loss=1.250, acc=0.699, val_acc=0.794]
+Epoch 8:  98%|█████████▊| 2450/2503 [06:17<00:08,  6.48it/s, loss=1.250, acc=0.699, val_acc=0.794]
+Epoch 8:  98%|█████████▊| 2450/2503 [06:17<00:08,  6.48it/s, loss=1.130, acc=0.750, val_acc=0.794]
+Epoch 8: 100%|█████████▉| 2500/2503 [06:35<00:00,  6.32it/s, loss=1.130, acc=0.750, val_acc=0.794]
+Epoch 8: 100%|█████████▉| 2500/2503 [06:35<00:00,  6.32it/s, loss=1.170, acc=0.715, val_acc=0.794]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validating: |          | 0/? [00:00<?, ?it/s][A
+
+Validating:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/98 [00:00<?, ?it/s][A
+
+Validation DataLoader 0:  51%|█████     | 50/98 [00:05<00:04,  9.77it/s][A
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.50it/s][A
+                                                                                                  
+
+                                                                        
+[A
+==================================================
+
+Epoch 8: 100%|█████████▉| 2500/2503 [06:47<00:00,  6.14it/s, loss=1.170, acc=0.715, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+                                                                                                  
+
+                                                                        
+[AValidation Results - Epoch 8
+
+Epoch 8: 100%|█████████▉| 2500/2503 [06:47<00:00,  6.14it/s, loss=1.170, acc=0.715, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+                                                                                                  
+
+                                                                        
+[A--------------------------------------------------
+
+Epoch 8: 100%|█████████▉| 2500/2503 [06:47<00:00,  6.14it/s, loss=1.170, acc=0.715, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+                                                                                                  
+
+                                                                        
+[ALoss:          0.8201
+
+Epoch 8: 100%|█████████▉| 2500/2503 [06:47<00:00,  6.14it/s, loss=1.170, acc=0.715, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-1 Accuracy: 0.7952
+
+Epoch 8: 100%|█████████▉| 2500/2503 [06:47<00:00,  6.14it/s, loss=1.170, acc=0.715, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+                                                                                                  
+
+                                                                        
+[ATop-5 Accuracy: 0.9451
+
+Epoch 8: 100%|█████████▉| 2500/2503 [06:47<00:00,  6.14it/s, loss=1.170, acc=0.715, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+                                                                                                  
+
+                                                                        
+[A==================================================
+
+
+Epoch 8: 100%|█████████▉| 2500/2503 [06:47<00:00,  6.14it/s, loss=1.170, acc=0.715, val_acc=0.794]
+
+Validation DataLoader 0: 100%|██████████| 98/98 [00:10<00:00,  9.24it/s][A
+
+                                                                        [A
+Epoch 8: 100%|█████████▉| 2500/2503 [06:47<00:00,  6.14it/s, loss=1.060, acc=0.748, val_acc=0.794]
+Epoch 8: 100%|██████████| 2503/2503 [06:47<00:00,  6.14it/s, loss=1.060, acc=0.748, val_acc=0.794]
+Epoch 8: 100%|██████████| 2503/2503 [06:47<00:00,  6.14it/s, loss=1.400, acc=0.701, val_acc=0.794]
+Epoch 8: 100%|██████████| 2503/2503 [06:47<00:00,  6.14it/s, loss=1.400, acc=0.701, val_acc=0.794]
+Epoch 8:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.400, acc=0.701, val_acc=0.794]           
+Epoch 9:   0%|          | 0/2503 [00:00<?, ?it/s, loss=1.400, acc=0.701, val_acc=0.794]
+Epoch 9:   2%|▏         | 50/2503 [00:07<05:53,  6.94it/s, loss=1.400, acc=0.701, val_acc=0.794]
+Epoch 9:   2%|▏         | 50/2503 [00:07<05:53,  6.94it/s, loss=1.170, acc=0.738, val_acc=0.794]
+Epoch 9:   4%|▍         | 100/2503 [00:13<05:20,  7.50it/s, loss=1.170, acc=0.738, val_acc=0.794]
+Epoch 9:   4%|▍         | 100/2503 [00:13<05:20,  7.50it/s, loss=1.170, acc=0.734, val_acc=0.794]
+Epoch 9:   6%|▌         | 150/2503 [00:19<05:05,  7.71it/s, loss=1.170, acc=0.734, val_acc=0.794]
+Epoch 9:   6%|▌         | 150/2503 [00:19<05:05,  7.71it/s, loss=1.190, acc=0.707, val_acc=0.794]
