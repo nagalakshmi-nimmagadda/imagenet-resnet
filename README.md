@@ -1,26 +1,65 @@
-# ImageNet Training and Deployment Guide
+# ImageNet Training and Deployment Pipeline 🚀
 
-This repository contains code for training ResNet50 on ImageNet using AWS EC2 instances and deploying to HuggingFace Spaces.
+[![Python 3.10](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/downloads/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.1.0-red.svg)](https://pytorch.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![HuggingFace Spaces](https://img.shields.io/badge/🤗%20Spaces-Deployment-yellow.svg)](https://huggingface.co/spaces)
+[![AWS](https://img.shields.io/badge/AWS-EC2%20Optimized-orange.svg)](https://aws.amazon.com/ec2/)
 
-## Current Results
-- Top-1 Accuracy: 79.26%
-- Top-5 Accuracy: 94.51%
+A production-ready pipeline for training ResNet50 on ImageNet and deploying to HuggingFace Spaces, optimized for AWS EC2 GPU instances.
 
-## Prerequisites
-- AWS Account with EC2 access
-- NVIDIA GPU instance (g6.12xlarge recommended)
-- HuggingFace account
-- ImageNet dataset
+## 📊 Performance
 
-## Directory Structure 
+| Metric | Value |
+|--------|-------|
+| Top-1 Accuracy | 79.26% |
+| Top-5 Accuracy | 94.51% |
+| Training Time | ~24 hours (g6.12xlarge) |
+| Model Size | 98 MB |
+
+## 🌟 Features
+
+- **Optimized Training Pipeline**
+  - Mixed precision training
+  - Gradient accumulation
+  - Multi-GPU support
+  - Automatic checkpointing
+
+- **Cost-Efficient Infrastructure**
+  - AWS Spot Instance support
+  - Automatic spot termination handling
+  - S3 checkpoint synchronization
+  - Resource monitoring
+
+- **Production Deployment**
+  - HuggingFace Spaces integration
+  - Gradio web interface
+  - Automated deployment pipeline
+  - Version control with git-lfs
+
+## 🏗️ Project Structure
 
 
+Imagenet-resnet/
 ├── checkpoints/ # Model checkpoints
-├── data/ # Dataset and data loading
-├── deployment/ # HuggingFace deployment files
+│ └── last.ckpt # Latest checkpoint
+├── configs/ # Configuration files
+│ ├── config.yaml # Training configuration
+│ └── aws_config.yaml # AWS configuration
+├── data/ # Dataset management
+│ ├── init.py
+│ ├── dataset.py # ImageNet dataset
+│ └── transforms.py # Data augmentation
+├── deployment/ # HuggingFace deployment
+│ ├── app.py # Gradio interface
+│ ├── requirements.txt # Dependencies
+│ └── scripts/ # Deployment scripts
 ├── logs/ # Training logs
 ├── scripts/ # Utility scripts
-└── configs/ # Configuration files
+│ ├── setup_instance.sh
+│ ├── train_spot.sh
+│ └── monitor.sh
+└── requirements.txt # Project dependencies
 
 
 ## Step-by-Step Guide
